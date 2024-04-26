@@ -839,6 +839,7 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Purchasing: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -859,11 +860,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 0b71d108-8cff-44e8-9f80-1356c680e7e6
+  cloudProjectId: d9e63714-fe86-420d-a3d8-7b0f3aed808b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: NewProject
-  organizationId: sefatns
+  organizationId: sudegurbuz
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
