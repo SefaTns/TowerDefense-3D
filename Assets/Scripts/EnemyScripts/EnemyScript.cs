@@ -32,13 +32,13 @@ public class EnemyScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Bullet"))
         {
-
             var a = other.gameObject.GetComponent<Bullet>();
             Debug.Log(a.BulletName);
+            
 
-            if (this.healthMove - a.getDamage > 0)
+            if (this.healthMove - a.Damage > 0)
             {
-                this.healthMove -= a.getDamage;
+                this.healthMove -= a.Damage;
                 Debug.Log(this.healthMove);
             }
             else

@@ -11,62 +11,32 @@ public abstract class AbstractWeapon : MonoBehaviour
     [SerializeField] private Bullet bulletPrefab;
     public string WeaponName
     {
-        get
-        {
-            return weaponName;
-        }
-        set
-        {
-            weaponName = value;
-        }
+        get { return weaponName; }
+        set { weaponName = value; }
     }
 
     public float WeaponDamage
     {
-        get 
-        { 
-            return weaponDamage;
-        }
-        set
-        {
-            weaponDamage = value;
-        }
+        get { return weaponDamage; }
+        set { weaponDamage = value; }
     }
 
     public float WeaponRadius
     {
-        get
-        {
-            return weaponRadius;
-        }
-        set
-        {
-            weaponRadius = value;
-        }
+        get { return weaponRadius; }
+        set { weaponRadius = value; }
     }
 
     public float WeaponFireRite
     {
-        get
-        {
-            return weaponFireRite;
-        }
-        set
-        {
-            weaponFireRite = value;
-        }
+        get { return weaponFireRite;}
+        set { weaponFireRite = value;}
     }
 
     public Bullet WeaponBullet
     {
-        get
-        {
-            return bulletPrefab;
-        }
-        set
-        {
-            bulletPrefab = value;
-        }
+        get { return bulletPrefab; }
+        set { bulletPrefab = value; }
     }
 
     public abstract void OnDrawGizmos();

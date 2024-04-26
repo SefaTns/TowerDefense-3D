@@ -26,28 +26,21 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public float getDamage
+    public float Damage
     {
-        get
-        {
-            return damage;
-        }
-        set
-        {
-            damage = value;
-        }
+        get { return  damage; }
+        set { damage = value; }
+    }
+
+    public float Speed
+    {
+        get { return speed; }
+        set { speed = value; }
     }
 
     public string BulletName
     {
-        get
-        {
-            return bulletName;
-        }
-        set
-        {
-            bulletName = value;
-        }
-
+        get { return bulletName; }
+        set { bulletName = value; }
     }
 }
