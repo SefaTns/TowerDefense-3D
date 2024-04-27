@@ -99,7 +99,7 @@ public class IAPController : MonoBehaviour, IStoreListener
         if (product != null && product.availableToPurchase)
         {
             Debug.Log("Buying product");
-            controller.InitiatePurchase(product); 
+            controller.InitiatePurchase                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (product); 
         }
         else
         {
