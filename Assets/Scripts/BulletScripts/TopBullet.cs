@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TopBullet : Bullet
 {
-    private float magicDamage = 20;
-    private float armorDamage = 40;
+    private float magicDamage = 10;
+    private float armorDamage = 20;
 
     public float MagicDamage
     {

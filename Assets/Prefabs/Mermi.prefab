@@ -168,6 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfa18123e5298a468bc167faa735ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletName: Top Mermi
+  bulletName: Yay Mermi
   speed: 10
   damage: 5

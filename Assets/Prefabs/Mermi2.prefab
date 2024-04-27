@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 323003477779225277}
   - component: {fileID: 895857409423023901}
   - component: {fileID: 1901559997881625021}
-  - component: {fileID: 4109589665751872844}
   - component: {fileID: 13512211346742962}
   - component: {fileID: 2707603534457797946}
+  - component: {fileID: -7577438389517665361}
   m_Layer: 0
   m_Name: Mermi2
   m_TagString: Bullet
@@ -108,21 +108,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4109589665751872844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4953549835084751136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcfa18123e5298a468bc167faa735ab7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletName: YayMermi
-  speed: 10
-  damage: 10
 --- !u!65 &13512211346742962
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -171,3 +156,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-7577438389517665361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953549835084751136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4daab8ad5703a4182d67490f64fd65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletName: TopMermi
+  speed: 10
+  damage: 3

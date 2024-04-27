@@ -46,6 +46,8 @@ public class EnemyScript : MonoBehaviour
                 Destroy(this.gameObject);
             }
             Destroy(other.gameObject);
+
+            
         }
     }
 }
