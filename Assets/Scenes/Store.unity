@@ -4117,6 +4117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e7564660af5db4fbb3b43909d3f2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gold: {fileID: 0}
+  ruby: {fileID: 0}
+  clover: {fileID: 0}
 --- !u!4 &1750623570
 Transform:
   m_ObjectHideFlags: 0
