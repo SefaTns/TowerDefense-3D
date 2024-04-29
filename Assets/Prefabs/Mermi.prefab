@@ -170,4 +170,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletName: Yay Mermi
   speed: 10
-  damage: 5
+  damage: 10

@@ -8903,17 +8903,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3698bd17e68c5564bad836e65a8fbb1b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.531
+      value: 5.47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3698bd17e68c5564bad836e65a8fbb1b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.11624172
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3698bd17e68c5564bad836e65a8fbb1b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.576782
+      value: -9.28
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3698bd17e68c5564bad836e65a8fbb1b,
         type: 3}
@@ -58037,6 +58037,74 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1271865317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271865320}
+  - component: {fileID: 1271865319}
+  - component: {fileID: 1271865318}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1271865318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271865317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1271865319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271865317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1271865320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271865317}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1272437712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69162,17 +69230,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 443db552449cc0e479d0122cf5eba29e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.3957844
+      value: 8.505
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 443db552449cc0e479d0122cf5eba29e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.059258
+      value: 0.275
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 443db552449cc0e479d0122cf5eba29e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.3416963
+      value: -3.417
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 443db552449cc0e479d0122cf5eba29e,
         type: 3}
@@ -91130,9 +91198,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc72f63fbfbbe064cbb5410cb8a3d5b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs: {fileID: 5618712846815281272, guid: 67ab60868cfa9ac40855aa6f616aaf10,
-    type: 3}
+  enemyPrefabs:
+  - {fileID: 8566691579889783086, guid: d2ea9ed3ff1d1c24bb434f99ddcce5f4, type: 3}
+  - {fileID: 5618712846815281272, guid: 67ab60868cfa9ac40855aa6f616aaf10, type: 3}
   spawnTransform: {fileID: 485428238}
+  spawnRate: 1
+  timeBeetwenWaves: 3
+  enemyCount: 5
 --- !u!1001 &1999860389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97353,3 +97425,4 @@ SceneRoots:
   - {fileID: 1088986561}
   - {fileID: 560955180}
   - {fileID: 1632210997}
+  - {fileID: 1271865320}

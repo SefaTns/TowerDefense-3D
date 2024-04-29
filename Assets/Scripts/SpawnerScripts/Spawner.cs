@@ -1,19 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject enemyPrefabs;
+    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private Transform spawnTransform;
-    
-    private void Start()
+
+    public float spawnRate = 1.0f;
+    public float timeBeetwenWaves = 3.0f;
+
+    public int enemyCount;
+    private int k = 0;
+
+    bool waveIsDone = true;
+
+    private void Update()
     {
-        InvokeRepeating(nameof(Spawn), 0, Random.Range(0, 3f));
+        if(waveIsDone && EnemyControl())
+        {
+            StartCoroutine(waveSpawner());
+        }
     }
 
-    private void Spawn()
+    IEnumerator waveSpawner()
     {
-        Instantiate(enemyPrefabs, spawnTransform.position, Quaternion.identity);
+        waveIsDone = false;
+
+        yield return new WaitForSeconds(timeBeetwenWaves);
+
+        for (int i = 0; i < enemyCount; i++)
+        {
+            GameObject enemyClone = Instantiate(enemyPrefabs[k], spawnTransform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(spawnRate);
+        }
+        k++;
+        spawnRate -= 0.1f;
+        
+        yield return new WaitForSeconds(timeBeetwenWaves);
+        
+        waveIsDone = true;
+    }
+
+    private bool EnemyControl()
+    {
+        GameObject[] enemyControl = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (enemyControl.Length > 0) return false;
+
+        else return true;
+         
     }
 }
