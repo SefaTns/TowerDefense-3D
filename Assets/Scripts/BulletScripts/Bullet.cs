@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
         }
         else
             Destroy(gameObject);
+
     }
 
     public float Damage

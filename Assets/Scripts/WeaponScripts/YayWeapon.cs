@@ -6,6 +6,7 @@ public class YayWeapon : AbstractWeapon
 {
     private Collider[] enemies;
     private EnemyScript currentEnemy = null;
+    [SerializeField] private Transform browstring;
 
     private void Start()
     {
@@ -37,7 +38,7 @@ public class YayWeapon : AbstractWeapon
         }
         if (currentEnemy)
         {
-            Bullet bullet = Instantiate(WeaponBullet, transform.position, Quaternion.identity);
+            Bullet bullet = Instantiate(WeaponBullet, browstring.position, Quaternion.identity);
             bullet.SetTarget(currentEnemy.transform);
         }
     }
@@ -48,6 +49,7 @@ public class YayWeapon : AbstractWeapon
         {
             Vector3 dir = currentEnemy.transform.position - transform.position;
             dir.y = 0;
+            
             transform.rotation = Quaternion.LookRotation(dir);
         }
     }

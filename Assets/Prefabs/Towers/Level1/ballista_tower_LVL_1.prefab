@@ -111,3 +111,4 @@ MonoBehaviour:
   weaponFireRite: 2
   bulletPrefab: {fileID: -4574903270714926991, guid: 928f667a65c5b544c90297e7dce885f0,
     type: 3}
+  browstring: {fileID: 0}

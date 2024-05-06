@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class AbstractWeapon : MonoBehaviour
 {
     [SerializeField] private string weaponName;
-    [SerializeField] private float weaponDamage;
+    //[SerializeField] private float weaponDamage;
     [SerializeField] private float weaponRadius;
     [SerializeField] private float weaponFireRite;
     [SerializeField] private Bullet bulletPrefab;
@@ -15,11 +15,11 @@ public abstract class AbstractWeapon : MonoBehaviour
         set { weaponName = value; }
     }
 
-    public float WeaponDamage
-    {
-        get { return weaponDamage; }
-        set { weaponDamage = value; }
-    }
+    //public float WeaponDamage
+    //{
+    //    get { return weaponDamage; }
+    //    set { weaponDamage = value; }
+    //}
 
     public float WeaponRadius
     {
