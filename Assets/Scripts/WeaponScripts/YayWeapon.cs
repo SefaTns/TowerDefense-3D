@@ -7,6 +7,9 @@ public class YayWeapon : AbstractWeapon
     private Collider[] enemies;
     private EnemyScript currentEnemy = null;
     [SerializeField] private Transform browstring;
+    [SerializeField] private Transform towerString;
+
+    private float maxRotationAngle = 15f;
 
     private void Start()
     {
@@ -38,16 +41,34 @@ public class YayWeapon : AbstractWeapon
         }
         if (currentEnemy)
         {
-            Bullet bullet = Instantiate(WeaponBullet, browstring.position, Quaternion.identity);
-            bullet.SetTarget(currentEnemy.transform);
+            
         }
     }
+
+    //public override void bulletSpawn()
+    //{
+    //    Bullet bullet = Instantiate(WeaponBullet, browstring.position, Quaternion.identity);
+        
+    //    Debug.Log("Bekleniyor");
+    //    //bullet.SetTarget(currentEnemy.transform);
+        
+    //}
+
+    IEnumerator bulletSpawn()
+    {
+        Bullet bullet = Instantiate(WeaponBullet, browstring.position, Quaternion.identity);
+        Debug.Log("Bekleniyor");
+        yield return new WaitForSeconds(2);
+    }
+
+    
 
     private void Update()
     {
         if (currentEnemy)
         {
-            Vector3 dir = currentEnemy.transform.position - transform.position;
+            StartCoroutine(bulletSpawn());
+            Vector3 dir = towerString.position - currentEnemy.transform.position;
             dir.y = 0;
             
             transform.rotation = Quaternion.LookRotation(dir);

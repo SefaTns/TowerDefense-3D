@@ -43,6 +43,11 @@ public class TopWeapon : AbstractWeapon
         }
     }
 
+    //public override void bulletSpawn()
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
     private void Update()
     {
         if (currentEnemy)

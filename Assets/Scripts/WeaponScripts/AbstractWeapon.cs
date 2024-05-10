@@ -41,4 +41,5 @@ public abstract class AbstractWeapon : MonoBehaviour
 
     public abstract void OnDrawGizmos();
     public abstract void ScanArea();
+    //public abstract void bulletSpawn();
 }
