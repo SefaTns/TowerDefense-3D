@@ -78,6 +78,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ballista_tower_LVL_1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5fcc941e37f9d244cb554bd9712aa183,
+        type: 3}
+      propertyPath: m_TagString
+      value: tower
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -87,6 +92,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8304656652755011098}
   m_SourcePrefab: {fileID: 100100000, guid: 5fcc941e37f9d244cb554bd9712aa183, type: 3}
+--- !u!4 &1250879427264449483 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -748425796678349182, guid: 5fcc941e37f9d244cb554bd9712aa183,
+    type: 3}
+  m_PrefabInstance: {fileID: 7260095628411045193}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7494098991345547288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fcc941e37f9d244cb554bd9712aa183,
@@ -106,9 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Yay
-  weaponDamage: 10
   weaponRadius: 5
   weaponFireRite: 2
   bulletPrefab: {fileID: -4574903270714926991, guid: 928f667a65c5b544c90297e7dce885f0,
     type: 3}
-  browstring: {fileID: 0}
+  browstring: {fileID: 1250879427264449483}
