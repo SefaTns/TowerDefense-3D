@@ -17,15 +17,19 @@ public class ClickHandler : MonoBehaviour
             // Işın, bir nesneye çarptı mı kontrol et
             if (Physics.Raycast(ray, out hit))
             {
-                // Çarpılan noktada yeni bir nesne oluştur
-                GameObject newObject = Instantiate(objectToPlace, hit.point, Quaternion.identity);
+                // Tıklanan nesnenin tag'ini kontrol et
+                if (hit.collider.CompareTag("Defence Point"))
+                {
+                    // Tıklanan nesnenin merkezine yeni bir nesne oluştur
+                    GameObject newObject = Instantiate(objectToPlace, hit.collider.transform.position, Quaternion.identity);
 
-                // Yeni nesneyi hedef noktanın merkezine yerleştir
-                Vector3 offset = newObject.transform.position - newObject.GetComponent<Renderer>().bounds.center;
-                newObject.transform.position = hit.point + offset;
+                    // Yeni nesneyi hedef noktanın merkezine yerleştir
+                    Vector3 offset = newObject.transform.position - newObject.GetComponent<Renderer>().bounds.center;
+                    newObject.transform.position = hit.collider.transform.position + offset;
 
-                // Nesne yerleştirildiğinden, hasPlaced değerini true yap
-                hasPlaced = true;
+                    // Nesne yerleştirildiğinden, hasPlaced değerini true yap
+                    hasPlaced = true;
+                }
             }
         }
     }
