@@ -5,6 +5,20 @@ public class ClickHandler : MonoBehaviour
     public GameObject objectToPlace; // Eklemek istediğimiz nesne
     private bool hasPlaced = false; // Nesne bir kere yerleştirildi mi?
 
+
+    void OnTriggerEnter(Collider other)
+    {
+        // Tetikleyici alan içine bir nesne girdiğinde bu fonksiyon çağrılır
+        // other parametresi, tetikleyici alan içine giren nesneyi temsil eder
+
+        // Tetikleyici alan içine giren nesnenin tag'ini kontrol et
+        if (other.CompareTag("tower"))
+        {
+            // Tetikleyici alan içine giren nesne, tower tag'ine sahip bir nesne ile temas etti
+            Debug.Log("Tıklanan nokta, tower tag'ine sahip bir nesne ile temas etti!");
+            // İstenen işlemleri yapabilirsiniz
+        }
+    }
     void Update()
     {
         // Nesne henüz yerleştirilmediyse ve fare sol tıklaması algılandıysa
@@ -20,6 +34,7 @@ public class ClickHandler : MonoBehaviour
                 // Tıklanan nesnenin tag'ini kontrol et
                 if (hit.collider.CompareTag("Defence Point"))
                 {
+                    Debug.Log(objectToPlace.tag);
                     // Tıklanan nesnenin merkezine yeni bir nesne oluştur
                     GameObject newObject = Instantiate(objectToPlace, hit.collider.transform.position, Quaternion.identity);
 
@@ -32,5 +47,7 @@ public class ClickHandler : MonoBehaviour
                 }
             }
         }
+        hasPlaced = false;
     }
 }
+

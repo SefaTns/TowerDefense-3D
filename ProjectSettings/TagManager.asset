@@ -9,6 +9,7 @@ TagManager:
   - Button
   - Enemy
   - Defence Point
+  - tower
   layers:
   - Default
   - TransparentFX
