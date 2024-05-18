@@ -9,7 +9,6 @@ public class EnemyScript : MonoBehaviour
 {
     [SerializeField] private float healthMove;
     private NavMeshAgent agent;
-
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -22,7 +21,7 @@ public class EnemyScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Castle"))
+        if (other.gameObject.CompareTag("Door"))
         {
             transform.DOMove(MapManager.instance.tower.position, 1).OnComplete(() =>
             {
