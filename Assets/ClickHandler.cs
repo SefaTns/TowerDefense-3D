@@ -1,53 +1,102 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ClickHandler : MonoBehaviour
 {
-    public GameObject objectToPlace; // Eklemek istediğimiz nesne
-    private bool hasPlaced = false; // Nesne bir kere yerleştirildi mi?
+    public Vector3[] positions;  // Adres tutan dizi (örneğin, Transform pozisyonları)
+    public GameObject kulePanel; // Kule seçim paneli
+    private GameObject selectedTower; // Seçilen kule
+    private Vector3 hitPosition; // Tıklanan pozisyon
 
-
-    void OnTriggerEnter(Collider other)
+    void Start()
     {
-        // Tetikleyici alan içine bir nesne girdiğinde bu fonksiyon çağrılır
-        // other parametresi, tetikleyici alan içine giren nesneyi temsil eder
-
-        // Tetikleyici alan içine giren nesnenin tag'ini kontrol et
-        if (other.CompareTag("tower"))
-        {
-            // Tetikleyici alan içine giren nesne, tower tag'ine sahip bir nesne ile temas etti
-            Debug.Log("Tıklanan nokta, tower tag'ine sahip bir nesne ile temas etti!");
-            // İstenen işlemleri yapabilirsiniz
-        }
+        // Kule panelini başlangıçta gizle
+        kulePanel.SetActive(false);
     }
+
     void Update()
     {
-        // Nesne henüz yerleştirilmediyse ve fare sol tıklaması algılandıysa
-        if (!hasPlaced && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            // Fare pozisyonunu al ve bunu bir ışın olarak dönüştür
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            // Işın, bir nesneye çarptı mı kontrol et
             if (Physics.Raycast(ray, out hit))
             {
-                // Tıklanan nesnenin tag'ini kontrol et
-                if (hit.collider.CompareTag("Defence Point"))
+                Collider clickedCollider = hit.collider;
+                if (clickedCollider.CompareTag("Defence Point"))
                 {
-                    Debug.Log(objectToPlace.tag);
-                    // Tıklanan nesnenin merkezine yeni bir nesne oluştur
-                    GameObject newObject = Instantiate(objectToPlace, hit.collider.transform.position, Quaternion.identity);
+                    bool isEmptySpot = CheckForEmptySpot();
+                    bool isPositionDuplicated = CheckForDuplicatePosition(hit.collider.transform.position);
 
-                    // Yeni nesneyi hedef noktanın merkezine yerleştir
-                    Vector3 offset = newObject.transform.position - newObject.GetComponent<Renderer>().bounds.center;
-                    newObject.transform.position = hit.collider.transform.position + offset;
+                    if (isPositionDuplicated)
+                    {
+                        Debug.Log("Yeni pozisyon daha önce girilmiş.");
+                        return;
+                    }
 
-                    // Nesne yerleştirildiğinden, hasPlaced değerini true yap
-                    hasPlaced = true;
+                    if (isEmptySpot)
+                    {
+                        hitPosition = hit.collider.transform.position;
+                        kulePanel.GetComponent<UIHandler>().ShowPanel(Input.mousePosition);
+                    }
+                    else
+                    {
+                        Debug.Log("Dizide boş bir eleman yok.");
+                    }
                 }
             }
         }
-        hasPlaced = false;
+    }
+
+    public void SetSelectedTower(GameObject tower)
+    {
+        selectedTower = tower;
+        PlaceTower();
+    }
+
+    private void PlaceTower()
+    {
+        if (selectedTower != null)
+        {
+            GameObject newObject = Instantiate(selectedTower, hitPosition, Quaternion.identity);
+            int index = Array.FindIndex(positions, item => item == Vector3.zero);
+
+            if (index == -1)
+            {
+                Vector3[] newArray = new Vector3[positions.Length + 1];
+                positions.CopyTo(newArray, 0);
+                positions = newArray;
+                index = positions.Length - 1;
+            }
+
+            positions[index] = newObject.transform.position;
+            Debug.Log("Yeni pozisyon eklendi: " + positions[index]);
+        }
+    }
+
+    bool CheckForEmptySpot()
+    {
+        for (int i = 0; i < positions.Length; i++)
+        {
+            if (positions[i] == Vector3.zero)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool CheckForDuplicatePosition(Vector3 newPosition)
+    {
+        foreach (Vector3 position in positions)
+        {
+            if (position == newPosition)
+            {
+                Debug.Log(newPosition);
+                return true;
+            }
+        }
+        return false;
     }
 }
-
