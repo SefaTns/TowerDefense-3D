@@ -8,32 +8,22 @@ using UnityEditor;
 public class EnemyScript : MonoBehaviour
 {
     [SerializeField] private float healthMove;
+    [SerializeField] private float damage;
     [SerializeField] private float magicResistance;
     [SerializeField] private float armor;
     private NavMeshAgent agent;
-    private Animator anim;
-
-    private DoorTrigger isDoor;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        
     }
 
     private void Start()
     {
         agent.SetDestination(MapManager.instance.tower.position);
-        anim = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-        if (isDoor.DoorControl == true)
-            anim.SetBool("attackBool", true);
-        else
-            anim.SetBool("attackBool", false);
-    }
+   
 
     //public void OnTriggerEnter(Collider other)
     //{
@@ -70,6 +60,12 @@ public class EnemyScript : MonoBehaviour
     {
         get { return healthMove; }
         set { healthMove = value; }
+    }
+
+    public float Damage
+    {
+        get { return damage; }
+        set { damage = value; }
     }
 
     public float MagicResistance

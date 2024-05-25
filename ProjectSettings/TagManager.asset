@@ -11,6 +11,8 @@ TagManager:
   - Defence Point
   - tower
   - Door
+  - rightDoor
+  - leftDoor
   layers:
   - Default
   - TransparentFX
