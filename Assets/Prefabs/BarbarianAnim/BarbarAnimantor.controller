@@ -26,7 +26,7 @@ AnimatorState:
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: characterBool
+  m_MirrorParameter: walkBool
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1101 &-2860453315240822147
@@ -63,7 +63,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: characterBool
+    m_ConditionEvent: walkBool
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6513900126874684728}
@@ -88,11 +88,11 @@ AnimatorController:
   m_Name: BarbarAnimantor
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: characterBool
+  - m_Name: walkBool
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: attackBool
     m_Type: 4
@@ -175,7 +175,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: characterBool
+    m_ConditionEvent: walkBool
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7058334088015421030}
@@ -216,7 +216,7 @@ AnimatorState:
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: characterBool
+  m_MirrorParameter: walkBool
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1102 &8328855418398927136
@@ -227,7 +227,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 2H_Melee_Attack_Spin
-  m_Speed: 1
+  m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5020331858108211449}
