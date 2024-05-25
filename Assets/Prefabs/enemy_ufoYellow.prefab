@@ -193,3 +193,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMove: 50
+  magicResistance: 10
+  armor: 10

@@ -8,45 +8,111 @@ using UnityEditor;
 public class EnemyScript : MonoBehaviour
 {
     [SerializeField] private float healthMove;
+    [SerializeField] private float magicResistance;
+    [SerializeField] private float armor;
     private NavMeshAgent agent;
+    private Animator anim;
+
+    private DoorTrigger isDoor;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        
     }
 
     private void Start()
     {
         agent.SetDestination(MapManager.instance.tower.position);
+        anim = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.gameObject.CompareTag("Door"))
-        {
-            transform.DOMove(MapManager.instance.tower.position, 1).OnComplete(() =>
-            {
-                Destroy(this.gameObject);
-            });
-        }
+        if (isDoor.DoorControl == true)
+            anim.SetBool("attackBool", true);
+        else
+            anim.SetBool("attackBool", false);
+    }
 
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            var a = other.gameObject.GetComponent<Bullet>();
-            Debug.Log(a.BulletName);
-            
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Door"))
+    //    {
+    //        transform.DOMove(MapManager.instance.tower.position, 1).OnComplete(() =>
+    //        {
+    //            Destroy(this.gameObject);
+    //        });
+    //    }
 
-            if (this.healthMove - a.Damage > 0)
+    //    if (other.gameObject.CompareTag("Bullet"))
+    //    {
+    //        var a = other.gameObject.GetComponent<Bullet>();
+    //        Debug.Log(a.BulletName);
+
+
+    //        if (this.healthMove - a.Damage > 0)
+    //        {
+    //            this.healthMove -= a.Damage;
+    //            Debug.Log(this.healthMove);
+    //        }
+    //        else
+    //        {
+    //            Destroy(this.gameObject);
+    //        }
+    //        Destroy(other.gameObject);
+
+
+    //    }
+    //}
+
+    public float HealtMove
+    {
+        get { return healthMove; }
+        set { healthMove = value; }
+    }
+
+    public float MagicResistance
+    {
+        get { return magicResistance; }
+        set { magicResistance = value; }
+    }
+
+    public float Armor
+    {
+        get { return armor; }
+        set { armor = value; }
+    }
+
+    public void damageControl(float damage, float armor, float magicResistance)
+    {
+        float arm = armor - this.Armor;
+        float mag = magicResistance - this.MagicResistance;
+
+        if (armor > this.Armor)
+            this.HealtMove -= damage + (damage * arm) / 100;
+        else
+        {
+            if (damage + arm < this.Armor)
             {
-                this.healthMove -= a.Damage;
-                Debug.Log(this.healthMove);
+                float yuzde = (damage * arm) / 100;
+                this.HealtMove -= yuzde;
             }
             else
-            {
-                Destroy(this.gameObject);
-            }
-            Destroy(other.gameObject);
+                this.HealtMove -= damage - arm;
+        }
 
-            
+        if (magicResistance > this.MagicResistance)
+            this.HealtMove -= damage + (damage * mag) / 100;
+        else
+        {
+            if (damage + mag < this.MagicResistance)
+            {
+                float yuzde = (damage * mag) / 100;
+                this.HealtMove -= yuzde;
+            }
+            else
+                this.HealtMove -= damage - mag;
         }
     }
 }

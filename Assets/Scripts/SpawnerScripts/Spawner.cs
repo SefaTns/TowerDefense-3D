@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Transform spawnTransform;
 
     public float spawnRate = 1.0f;
-    public float timeBeetwenWaves = 3.0f;
+    public float timeBeetwenWaves = 2.0f;
 
     public int enemyCount;
     private int k = 0;
