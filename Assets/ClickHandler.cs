@@ -28,7 +28,7 @@ public class ClickHandler : MonoBehaviour
                 Collider clickedCollider = hit.collider;
                 if (clickedCollider.CompareTag("Defence Point"))
                 {
-                    
+
                     bool isPositionDuplicated = CheckForDuplicatePosition(hit.collider.transform.position);
                     hitPosition = hit.transform.position;
                     Debug.Log("duplicated: " + isPositionDuplicated);
@@ -80,7 +80,7 @@ public class ClickHandler : MonoBehaviour
     private void ShowSelectionPanel(Vector3 position)
     {
         // Panelin y pozisyonunu biraz yukarı taşıyoruz
-        Vector3 adjustedPosition = new Vector3(position.x, position.y + 10.0f , position.z); // 5.0f, panelin yukarıya taşınma miktarı
+        Vector3 adjustedPosition = new Vector3(position.x, position.y + 10.0f, position.z); // 5.0f, panelin yukarıya taşınma miktarı
 
         // Panelin pozisyonunu ayarlıyoruz
         selectionPanel.transform.position = adjustedPosition;
@@ -123,7 +123,7 @@ public class ClickHandler : MonoBehaviour
         {
             if (position == newPosition)
             {
-                Debug.Log(newPosition +"pozisyon duplice edilmiş");
+                Debug.Log(newPosition + "pozisyon duplice edilmiş");
                 return true;
             }
         }
