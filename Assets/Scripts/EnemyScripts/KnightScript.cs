@@ -1,13 +1,16 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BarbarAnimScript : MonoBehaviour
+public class KnightScript : EnemyScript
 {
     private Animator anim;
     private NavMeshAgent agent;
     private float wait = 2f;
+
+    // Tüm anim hareketleri tek bir scriptte olabilir.
 
     private void Awake()
     {
@@ -17,9 +20,8 @@ public class BarbarAnimScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         StartCoroutine(AnimWait());
-        //anim.SetBool("walkBool", true);
         agent.SetDestination(MapManager.instance.tower.position);
-        
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -30,11 +32,11 @@ public class BarbarAnimScript : MonoBehaviour
             anim.SetBool("attackBool", true);
         }
         var doorComp = other.gameObject.GetComponent<DoorTrigger>();
-        if(doorComp.DoorHealt == 0)
+        if (doorComp.DoorHealt == 0)
         {
             agent.isStopped = false;
             anim.SetBool("attackBool", false);
-            anim.SetBool("walkBool", true) ;
+            anim.SetBool("walkBool", true);
         }
     }
     private IEnumerator AnimWait()
@@ -43,6 +45,40 @@ public class BarbarAnimScript : MonoBehaviour
         anim.SetBool("walkBool", false);
         yield return new WaitForSeconds(wait);
         agent.isStopped = false;
-        anim.SetBool("walkBool",true);
+        anim.SetBool("walkBool", true);
+    }
+
+
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Door"))
+        {
+            transform.DOMove(MapManager.instance.tower.position, 1).OnComplete(() =>
+            {
+                Destroy(this.gameObject);
+            });
+
+        }
+
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            var a = other.gameObject.GetComponent<Bullet>();
+            Debug.Log(a.BulletName);
+
+
+            if (this.HealtMove - a.Damage > 0)
+            {
+                this.HealtMove -= a.Damage;
+                Debug.Log(this.HealtMove);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+            Destroy(other.gameObject);
+
+
+        }
     }
 }

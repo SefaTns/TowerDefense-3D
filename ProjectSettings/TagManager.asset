@@ -9,7 +9,6 @@ TagManager:
   - Button
   - Enemy
   - Defence Point
-  - tower
   - Door
   - rightDoor
   - leftDoor

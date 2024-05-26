@@ -11,19 +11,6 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float magicResistance;
     [SerializeField] private float armor;
-    private NavMeshAgent agent;
-
-    void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-    }
-
-    private void Start()
-    {
-        agent.SetDestination(MapManager.instance.tower.position);
-    }
-
-   
 
     //public void OnTriggerEnter(Collider other)
     //{
