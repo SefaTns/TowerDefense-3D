@@ -12,62 +12,81 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float magicResistance;
     [SerializeField] private float armor;
 
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Door"))
-    //    {
-    //        transform.DOMove(MapManager.instance.tower.position, 1).OnComplete(() =>
-    //        {
-    //            Destroy(this.gameObject);
-    //        });
-    //    }
+    private Animator anim;
+    private NavMeshAgent agent;
+    private float wait = 2f;
 
-    //    if (other.gameObject.CompareTag("Bullet"))
-    //    {
-    //        var a = other.gameObject.GetComponent<Bullet>();
-    //        Debug.Log(a.BulletName);
-
-
-    //        if (this.healthMove - a.Damage > 0)
-    //        {
-    //            this.healthMove -= a.Damage;
-    //            Debug.Log(this.healthMove);
-    //        }
-    //        else
-    //        {
-    //            Destroy(this.gameObject);
-    //        }
-    //        Destroy(other.gameObject);
-
-
-    //    }
-    //}
-
-    public float HealtMove
+    private void Awake()
     {
-        get { return healthMove; }
-        set { healthMove = value; }
+        agent = GetComponent<NavMeshAgent>();
+    }
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        StartCoroutine(AnimWait());
+        agent.SetDestination(MapManager.instance.tower.position);
+
     }
 
-    public float Damage
+    private void OnTriggerStay(Collider other)
     {
-        get { return damage; }
-        set { damage = value; }
+        if (other.gameObject.CompareTag("leftDoor") || other.gameObject.CompareTag("rightDoor"))
+        {
+            agent.isStopped = true;
+            anim.SetBool("attackBool", true);
+        }
+        var doorComp = other.gameObject.GetComponent<DoorTrigger>();
+        if (doorComp.DoorHealt <= 0)
+        {
+            agent.isStopped = false;
+            anim.SetBool("attackBool", false);
+            anim.SetBool("walkBool", true);
+        }
+    }
+    private IEnumerator AnimWait()
+    {
+        agent.isStopped = true;
+        anim.SetBool("deathBool", false);
+        yield return new WaitForSeconds(wait);
+        agent.isStopped = false;
+        anim.SetBool("walkBool", true);
     }
 
-    public float MagicResistance
+
+
+    public void OnTriggerEnter(Collider other)
     {
-        get { return magicResistance; }
-        set { magicResistance = value; }
+        //if (other.gameObject.CompareTag("Door"))
+        //{
+        //    transform.DOMove(MapManager.instance.tower.position, 1).OnComplete(() =>
+        //    {
+        //        Destroy(this.gameObject);
+        //    });
+
+        //}
+
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            var a = other.gameObject.GetComponent<Bullet>();
+            Debug.Log(a.BulletName);
+
+
+            if (this.HealtMove - a.Damage > 0)
+            {
+                this.HealtMove -= a.Damage;
+                Debug.Log(this.HealtMove);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+            Destroy(other.gameObject);
+
+
+        }
     }
 
-    public float Armor
-    {
-        get { return armor; }
-        set { armor = value; }
-    }
-
-    public void damageControl(float damage, float armor, float magicResistance)
+    public void damageControl(float damage, float armor, float magicResistance) // Zýrh ve Büyü direnci gibi kontroller"
     {
         float arm = armor - this.Armor;
         float mag = magicResistance - this.MagicResistance;
@@ -97,5 +116,29 @@ public class EnemyScript : MonoBehaviour
             else
                 this.HealtMove -= damage - mag;
         }
+    }
+
+    public float HealtMove
+    {
+        get { return healthMove; }
+        set { healthMove = value; }
+    }
+
+    public float Damage
+    {
+        get { return damage; }
+        set { damage = value; }
+    }
+
+    public float MagicResistance
+    {
+        get { return magicResistance; }
+        set { magicResistance = value; }
+    }
+
+    public float Armor
+    {
+        get { return armor; }
+        set { armor = value; }
     }
 }

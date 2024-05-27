@@ -20,7 +20,7 @@ public class DoorTrigger : MonoBehaviour
             this.DoorHealt -= enemyDamage.Damage;
             Debug.Log("Kapý Can : " + this.DoorHealt);
 
-            if (this.DoorHealt == 0)
+            if (this.DoorHealt <= 0)
             {
                 if (this.gameObject.CompareTag("leftDoor"))
                 {

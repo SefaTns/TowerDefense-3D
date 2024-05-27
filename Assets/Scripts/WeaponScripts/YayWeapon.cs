@@ -9,7 +9,7 @@ public class YayWeapon : AbstractWeapon
     [SerializeField] private Transform browstring;
     [SerializeField] private Transform towerString;
 
-    private float maxRotationAngle = 15f;
+    //private float maxRotationAngle = 15f;
 
     private void Start()
     {
