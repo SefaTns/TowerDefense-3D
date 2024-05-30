@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +20,7 @@ public class YayWeapon : AbstractWeapon
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, WeaponRadius);
     }
-    public  void ScanArea()
+    public void ScanArea()
     {
         enemies = Physics.OverlapSphere(transform.position, WeaponRadius);
 
@@ -48,10 +48,10 @@ public class YayWeapon : AbstractWeapon
     //public override void bulletSpawn()
     //{
     //    Bullet bullet = Instantiate(WeaponBullet, browstring.position, Quaternion.identity);
-        
+
     //    Debug.Log("Bekleniyor");
     //    //bullet.SetTarget(currentEnemy.transform);
-        
+
     //}
 
     IEnumerator bulletSpawn()
@@ -61,7 +61,7 @@ public class YayWeapon : AbstractWeapon
         yield return new WaitForSeconds(2);
     }
 
-    
+
 
     private void Update()
     {
@@ -70,7 +70,7 @@ public class YayWeapon : AbstractWeapon
             StartCoroutine(bulletSpawn());
             Vector3 dir = browstring.position - currentEnemy.transform.position;
             dir.y = 0;
-            
+
             transform.rotation = Quaternion.LookRotation(dir);
         }
     }

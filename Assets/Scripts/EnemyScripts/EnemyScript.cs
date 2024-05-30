@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -86,7 +86,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    public void damageControl(float damage, float armor, float magicResistance) // Zýrh ve Büyü direnci gibi kontroller"
+    public void damageControl(float damage, float armor, float magicResistance) // ZÄ±rh ve BÃ¼yÃ¼ direnci gibi kontroller"
     {
         float arm = armor - this.Armor;
         float mag = magicResistance - this.MagicResistance;

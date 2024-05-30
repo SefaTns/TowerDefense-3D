@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
 
     public float Damage
     {
-        get { return  damage; }
+        get { return damage; }
         set { damage = value; }
     }
 
