@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c10945842c7dec48a6a7f274e232cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMove: 0
+  healthMove: 20
   damage: 15
   magicResistance: 0
   armor: 0
@@ -196,7 +196,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

@@ -13,7 +13,6 @@ public class DoorTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") && canTrigger)
         {
             StartCoroutine(TriggerCooldown());
-            Vector3 currentRotation = this.transform.eulerAngles;
             
             var enemyDamage = other.gameObject.GetComponent<EnemyScript>();
 
@@ -22,16 +21,11 @@ public class DoorTrigger : MonoBehaviour
 
             if (this.DoorHealt <= 0)
             {
-                if (this.gameObject.CompareTag("leftDoor"))
+                if (this.gameObject.CompareTag("leftDoor") || this.gameObject.CompareTag("rightDoor"))
                 {
-                    currentRotation.y = -90f;
+                    Destroy(this.gameObject);
                 }
-                if (this.gameObject.CompareTag("rightDoor"))
-                    currentRotation.y = 90f;
             }
-
-            this.transform.eulerAngles = currentRotation;
-            Debug.Log("Current : " + currentRotation.ToString());
         }
     }
 

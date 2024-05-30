@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9574442c07f7837498dc04df384b1b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMove: 50
+  healthMove: 20
   damage: 10
   magicResistance: 10
   armor: 10

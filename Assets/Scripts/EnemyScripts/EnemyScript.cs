@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float magicResistance;
     [SerializeField] private float armor;
+    private bool isDeath = false;
 
     private Animator anim;
     private NavMeshAgent agent;
@@ -34,14 +35,17 @@ public class EnemyScript : MonoBehaviour
         {
             agent.isStopped = true;
             anim.SetBool("attackBool", true);
+
+            var doorComp = other.gameObject.GetComponent<DoorTrigger>();
+            if (doorComp.DoorHealt <= 0)
+            {
+                agent.isStopped = false;
+                anim.SetBool("attackBool", false);
+                anim.SetBool("walkBool", true);
+            }
         }
-        var doorComp = other.gameObject.GetComponent<DoorTrigger>();
-        if (doorComp.DoorHealt <= 0)
-        {
-            agent.isStopped = false;
-            anim.SetBool("attackBool", false);
-            anim.SetBool("walkBool", true);
-        }
+        if(IsDeath) { anim.SetBool("deathBool", true);}
+        
     }
     private IEnumerator AnimWait()
     {
@@ -51,8 +55,6 @@ public class EnemyScript : MonoBehaviour
         agent.isStopped = false;
         anim.SetBool("walkBool", true);
     }
-
-
 
     public void OnTriggerEnter(Collider other)
     {
@@ -67,18 +69,21 @@ public class EnemyScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Bullet"))
         {
-            var a = other.gameObject.GetComponent<Bullet>();
-            Debug.Log(a.BulletName);
+            //var gun = other.gameObject.GetComponent<Bullet>();
 
+            var gun = FindObjectOfType<Bullet>();
 
-            if (this.HealtMove - a.Damage > 0)
+            if (this.HealtMove - gun.Damage > 0)
             {
-                this.HealtMove -= a.Damage;
-                Debug.Log(this.HealtMove);
+                this.HealtMove -= gun.Damage;
             }
             else
             {
-                Destroy(this.gameObject);
+                this.IsDeath = true;
+                agent.isStopped = true;
+                anim.SetBool("deathBool", true);
+          
+                //Destroy(this.gameObject);
             }
             Destroy(other.gameObject);
 
@@ -140,5 +145,11 @@ public class EnemyScript : MonoBehaviour
     {
         get { return armor; }
         set { armor = value; }
+    }
+
+    public bool IsDeath
+    {
+        get { return isDeath; }
+        set { isDeath = value; }
     }
 }

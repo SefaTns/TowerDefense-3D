@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.SocialPlatforms.Impl;
 
 public class Bullet : MonoBehaviour
 {
@@ -22,10 +21,6 @@ public class Bullet : MonoBehaviour
         else
             Destroy(gameObject);
     }
-
-
-
-
 
     public void SetTarget(Transform target)
     {

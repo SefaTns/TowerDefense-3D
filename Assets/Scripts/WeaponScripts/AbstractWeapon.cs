@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class AbstractWeapon : MonoBehaviour
@@ -8,8 +10,7 @@ public abstract class AbstractWeapon : MonoBehaviour
     [SerializeField] private float weaponRadius;
     [SerializeField] private float weaponFireRite;
     [SerializeField] private Bullet bulletPrefab;
-    private Bullet currentTemp;
-    private bool isLoaded = true;
+    [SerializeField] private Transform towerTransform;
     public string WeaponName
     {
         get { return weaponName; }
@@ -34,16 +35,18 @@ public abstract class AbstractWeapon : MonoBehaviour
         set { bulletPrefab = value; }
     }
 
-    public Bullet CurrentTemp
+    public Transform TowerTransform()
     {
-        get { return currentTemp; }
-        set { currentTemp = value; }
+        return towerTransform;
     }
-
-    public bool IsLoaded
+    public void LoadArrow(Transform konum, EnemyScript currentEnemy)
     {
-        get { return isLoaded; }
-        set { isLoaded = value; }
+        var enemy = FindObjectOfType<EnemyScript>();
+        if (!enemy.IsDeath)
+        {
+            Bullet bullet = Instantiate(WeaponBullet, konum.position, Quaternion.identity);
+            bullet.SetTarget(currentEnemy.transform);
+        }
     }
 
     public abstract void OnDrawGizmos();

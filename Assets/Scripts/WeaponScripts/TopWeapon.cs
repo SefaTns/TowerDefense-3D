@@ -6,8 +6,8 @@ using UnityEngine;
 public class TopWeapon : AbstractWeapon
 {
     private Collider[] enemies;
-    private Features currentEnemy = null;
-    public Transform konum;
+    private EnemyScript currentEnemy = null;
+    [SerializeField] private Transform bulletNavig;
     private void Start()
     {
         InvokeRepeating(nameof(ScanArea), 0, WeaponFireRite);
@@ -21,15 +21,15 @@ public class TopWeapon : AbstractWeapon
 
     public void ScanArea()
     {
-        enemies = Physics.OverlapSphere(transform.position, WeaponRadius);
+        enemies = Physics.OverlapSphere(TowerTransform().position, WeaponRadius);
 
-        float distance = 1000f;
+        float distance = float.MaxValue;
 
         foreach (Collider enemy in enemies)
         {
-            if (enemy.gameObject.TryGetComponent(out Features EnemyScript))
+            if (enemy.gameObject.TryGetComponent(out EnemyScript EnemyScript))
             {
-                float dist = Vector3.Distance(konum.position, enemy.transform.position);
+                float dist = Vector3.Distance(bulletNavig.position, enemy.transform.position);
                 if(dist <= distance) 
                 {
                     currentEnemy = EnemyScript;
@@ -39,13 +39,9 @@ public class TopWeapon : AbstractWeapon
         }
         if (currentEnemy)
         {
-            Bullet bullet = Instantiate(WeaponBullet, konum.position, Quaternion.identity);
-            bullet.SetTarget(currentEnemy.transform);
-            //LoadArrow();
+            LoadArrow(bulletNavig, currentEnemy);
         }
     }
-
-    
 
     private void Update()
     {
@@ -56,10 +52,4 @@ public class TopWeapon : AbstractWeapon
             transform.rotation = Quaternion.LookRotation(dir);
         }
     }
-
-    private void LoadArrow()
-    {
-        Bullet bullet = Instantiate(WeaponBullet, konum.position, Quaternion.identity);
-        bullet.SetTarget(currentEnemy.transform);
-    }    
 }
