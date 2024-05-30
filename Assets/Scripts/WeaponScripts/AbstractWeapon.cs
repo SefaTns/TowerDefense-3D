@@ -5,21 +5,16 @@ using UnityEngine;
 public abstract class AbstractWeapon : MonoBehaviour
 {
     [SerializeField] private string weaponName;
-    //[SerializeField] private float weaponDamage;
     [SerializeField] private float weaponRadius;
     [SerializeField] private float weaponFireRite;
     [SerializeField] private Bullet bulletPrefab;
+    private Bullet currentTemp;
+    private bool isLoaded = true;
     public string WeaponName
     {
         get { return weaponName; }
         set { weaponName = value; }
     }
-
-    //public float WeaponDamage
-    //{
-    //    get { return weaponDamage; }
-    //    set { weaponDamage = value; }
-    //}
 
     public float WeaponRadius
     {
@@ -39,7 +34,18 @@ public abstract class AbstractWeapon : MonoBehaviour
         set { bulletPrefab = value; }
     }
 
+    public Bullet CurrentTemp
+    {
+        get { return currentTemp; }
+        set { currentTemp = value; }
+    }
+
+    public bool IsLoaded
+    {
+        get { return isLoaded; }
+        set { isLoaded = value; }
+    }
+
     public abstract void OnDrawGizmos();
-    public abstract void ScanArea();
-    //public abstract void bulletSpawn();
+    //public abstract void ScanArea();
 }

@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5fcc941e37f9d244cb554bd9712aa183,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fcc941e37f9d244cb554bd9712aa183,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fcc941e37f9d244cb554bd9712aa183,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fcc941e37f9d244cb554bd9712aa183,
         type: 3}
@@ -239,17 +239,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7767204622834236950}
-    - targetCorrespondingSourceObject: {fileID: -568690677035880307, guid: 5fcc941e37f9d244cb554bd9712aa183,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8627247585104651865}
   m_SourcePrefab: {fileID: 100100000, guid: 5fcc941e37f9d244cb554bd9712aa183, type: 3}
---- !u!4 &2350394303898066465 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5fcc941e37f9d244cb554bd9712aa183,
-    type: 3}
-  m_PrefabInstance: {fileID: 2816155320442649034}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3158597315573466267 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fcc941e37f9d244cb554bd9712aa183,
@@ -320,37 +310,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!4 &5947549644617742152 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -748425796678349182, guid: 5fcc941e37f9d244cb554bd9712aa183,
-    type: 3}
-  m_PrefabInstance: {fileID: 2816155320442649034}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6849804060304623943 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -568690677035880307, guid: 5fcc941e37f9d244cb554bd9712aa183,
-    type: 3}
-  m_PrefabInstance: {fileID: 2816155320442649034}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8627247585104651865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6849804060304623943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc3d46858df2514594142e1d8abcfcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponName: YayWeapon
-  weaponRadius: 6
-  weaponFireRite: 2
-  bulletPrefab: {fileID: -4574903270714926991, guid: 928f667a65c5b544c90297e7dce885f0,
-    type: 3}
-  browstring: {fileID: 5947549644617742152}
-  towerString: {fileID: 2350394303898066465}
 --- !u!4 &7676042465437382423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3633778572487160099, guid: 5fcc941e37f9d244cb554bd9712aa183,

@@ -6,7 +6,8 @@ using UnityEngine;
 public class TopWeapon : AbstractWeapon
 {
     private Collider[] enemies;
-    private EnemyScript currentEnemy = null;
+    private Features currentEnemy = null;
+    public Transform konum;
     private void Start()
     {
         InvokeRepeating(nameof(ScanArea), 0, WeaponFireRite);
@@ -18,7 +19,7 @@ public class TopWeapon : AbstractWeapon
         Gizmos.DrawWireSphere(transform.position, WeaponRadius);
     }
 
-    public override void ScanArea()
+    public void ScanArea()
     {
         enemies = Physics.OverlapSphere(transform.position, WeaponRadius);
 
@@ -26,9 +27,9 @@ public class TopWeapon : AbstractWeapon
 
         foreach (Collider enemy in enemies)
         {
-            if (enemy.gameObject.TryGetComponent(out EnemyScript EnemyScript))
+            if (enemy.gameObject.TryGetComponent(out Features EnemyScript))
             {
-                float dist = Vector3.Distance(transform.position, enemy.transform.position);
+                float dist = Vector3.Distance(konum.position, enemy.transform.position);
                 if(dist <= distance) 
                 {
                     currentEnemy = EnemyScript;
@@ -38,15 +39,13 @@ public class TopWeapon : AbstractWeapon
         }
         if (currentEnemy)
         {
-            Bullet bullet = Instantiate(WeaponBullet, transform.position, Quaternion.identity);
+            Bullet bullet = Instantiate(WeaponBullet, konum.position, Quaternion.identity);
             bullet.SetTarget(currentEnemy.transform);
+            //LoadArrow();
         }
     }
 
-    //public override void bulletSpawn()
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+    
 
     private void Update()
     {
@@ -57,4 +56,10 @@ public class TopWeapon : AbstractWeapon
             transform.rotation = Quaternion.LookRotation(dir);
         }
     }
+
+    private void LoadArrow()
+    {
+        Bullet bullet = Instantiate(WeaponBullet, konum.position, Quaternion.identity);
+        bullet.SetTarget(currentEnemy.transform);
+    }    
 }
