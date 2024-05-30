@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMove: 0
-  damage: 0
+  damage: 20
   magicResistance: 0
   armor: 0
 --- !u!95 &-880031053021393244

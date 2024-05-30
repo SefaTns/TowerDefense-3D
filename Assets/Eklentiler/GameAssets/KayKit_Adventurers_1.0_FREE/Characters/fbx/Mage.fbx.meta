@@ -73,7 +73,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -91,11 +91,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Dualwield_Melee_Attack_Slice
-      takeName: Dualwield_Melee_Attack_Slice
+      name: Walking_A
+      takeName: Walking_A
       internalID: 7060811993321468294
       firstFrame: 0
-      lastFrame: 35
+      lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1222,11 +1222,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Death_A (1)
-      takeName: Death_A
+      name: Dualwield_Melee_Attack_Slice
+      takeName: Dualwield_Melee_Attack_Slice
       internalID: -5698863656139880434
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
