@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.SocialPlatforms.Impl;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,10 +10,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float damage;
 
-    public void SetTarget(Transform target)
-    {
-        this.target = target;
-    }
 
     private void Update()
     {
@@ -24,12 +21,21 @@ public class Bullet : MonoBehaviour
         }
         else
             Destroy(gameObject);
-
     }
+
+
+
+
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
+
 
     public float Damage
     {
-        get { return  damage; }
+        get { return damage; }
         set { damage = value; }
     }
 

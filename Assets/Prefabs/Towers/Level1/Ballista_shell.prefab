@@ -99,10 +99,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -5389422320261642126}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d339bf9fe8bd7c1489ae6570ca25339f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -4574903270714926991}
   m_SourcePrefab: {fileID: 100100000, guid: d339bf9fe8bd7c1489ae6570ca25339f, type: 3}
 --- !u!1 &2497703097116608233 stripped
 GameObject:
@@ -179,18 +175,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.3651346
   m_Center: {x: -0.009195421, y: 1.3651346, z: 0.0000012218956}
---- !u!114 &-4574903270714926991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2497703097116608233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4daab8ad5703a4182d67490f64fd65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletName: Ok
-  speed: 10
-  damage: 10
