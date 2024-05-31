@@ -17,6 +17,36 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Store.unity
     guid: 51598ad61ff0d1d43850e974166cca4d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sezon_1/Level_1.unity
+    guid: 804fb507c4ddce64b81a3f39f93c8499
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sezon_1/Level_2.unity
+    guid: 62075bd8341d66f45ad031681f534321
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sezon_1/Level_3.unity
+    guid: 00377bc29d2cf6140bea4ff5a4b638d7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sezon_1/Level_4.unity
+    guid: e2f7d74d2646c6c49b866016c48b14fa
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sezon_1/Level_5.unity
+    guid: aa421525503f22d49afa01fdbd810d44
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sezon_1/Level_6.unity
+    guid: 463a94ac541f3eb4a950556503161511
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sezon_1/Level_7.unity
+    guid: 05d64e6d9ed4908409234de0a4f01492
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sezon_1/Level_8.unity
+    guid: cb180013d232d1b4baa1b3d6735c1468
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sezon_1/Level_9.unity
+    guid: ca12820ec57c1d9438672829799b2bcb
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sezon_1/Level_10.unity
+    guid: 891ba105239d3194499ae96ffe170648
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c4d146c0e4c60fc43a21d307843c96f3,
       type: 2}

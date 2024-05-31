@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 20314146}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719468036}
+        m_TargetAssemblyTypeName: SeviyeScript, Assembly-CSharp
+        m_MethodName: Seviye7
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &20314146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +472,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 143737494}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719468036}
+        m_TargetAssemblyTypeName: SeviyeScript, Assembly-CSharp
+        m_MethodName: Seviye8
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &143737494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +872,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 237721666}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719468036}
+        m_TargetAssemblyTypeName: SeviyeScript, Assembly-CSharp
+        m_MethodName: Seviye2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &237721666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,7 +1005,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 275705852}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719468036}
+        m_TargetAssemblyTypeName: SeviyeScript, Assembly-CSharp
+        m_MethodName: Seviye4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &275705852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1237,7 +1285,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545454380}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719468036}
+        m_TargetAssemblyTypeName: SeviyeScript, Assembly-CSharp
+        m_MethodName: Seviye10
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &545454380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1358,7 +1418,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 578030820}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719468036}
+        m_TargetAssemblyTypeName: SeviyeScript, Assembly-CSharp
+        m_MethodName: Seviye1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &578030820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1479,7 +1551,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 648944564}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719468036}
+        m_TargetAssemblyTypeName: SeviyeScript, Assembly-CSharp
+        m_MethodName: Seviye9
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &648944564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1694,7 +1778,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 687387578}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719468036}
+        m_TargetAssemblyTypeName: SeviyeScript, Assembly-CSharp
+        m_MethodName: Seviye5
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &687387578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2110,7 +2206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1366470762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719468036}
+        m_TargetAssemblyTypeName: SeviyeScript, Assembly-CSharp
+        m_MethodName: Seviye6
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1366470762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2767,7 +2875,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1634350241}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719468036}
+        m_TargetAssemblyTypeName: SeviyeScript, Assembly-CSharp
+        m_MethodName: Seviye3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1634350241
 MonoBehaviour:
   m_ObjectHideFlags: 0
