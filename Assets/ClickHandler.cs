@@ -40,6 +40,7 @@ public class ClickHandler : MonoBehaviour
 
                     if (!isPositionDuplicated)
                     {
+                        Debug.Log("Yeni pozisyon girildi.");
                         ShowSelectionPanel(hitPosition); // Paneli göster
                     }
                     else
@@ -53,12 +54,14 @@ public class ClickHandler : MonoBehaviour
 
     public void SetSelectedTower(GameObject tower)
     {
+        Debug.Log("Seçilen kule: " + tower.name);
         selectedTower = tower;
         PlaceTower(hitPosition);
     }
 
     private void PlaceTower(Vector3 position)
     {
+        Debug.Log("Kule yerleştiriliyor: " + position);
         if (selectedTower != null)
         {
             GameObject newObject = Instantiate(selectedTower, hitPosition, Quaternion.identity);
@@ -80,7 +83,7 @@ public class ClickHandler : MonoBehaviour
     private void ShowSelectionPanel(Vector3 position)
     {
         // Panelin y pozisyonunu biraz yukarı taşıyoruz
-        Vector3 adjustedPosition = new Vector3(position.x, position.y + 10.0f, position.z); // 5.0f, panelin yukarıya taşınma miktarı
+        Vector3 adjustedPosition = new Vector3(position.x, position.y + 2.0f, position.z); // 5.0f, panelin yukarıya taşınma miktarı
 
         // Panelin pozisyonunu ayarlıyoruz
         selectionPanel.transform.position = adjustedPosition;
@@ -119,6 +122,7 @@ public class ClickHandler : MonoBehaviour
 
     bool CheckForDuplicatePosition(Vector3 newPosition)
     {
+        Debug.Log("Yeni pozisyon: " + newPosition);
         foreach (Vector3 position in positions)
         {
             if (position == newPosition)
