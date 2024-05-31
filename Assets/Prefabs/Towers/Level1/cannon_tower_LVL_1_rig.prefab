@@ -152,6 +152,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4981707426641949694}
   m_SourcePrefab: {fileID: 100100000, guid: 8a8458c259d26a44cb54c31ea7abe9c7, type: 3}
+--- !u!4 &5078300981427184909 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 4752149364703576806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6625702254102621598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1873567483714858872, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
@@ -181,4 +187,5 @@ MonoBehaviour:
   weaponFireRite: 1.5
   bulletPrefab: {fileID: 8933080374496484249, guid: ddaebb5a692f12541833b9ae58f8cca9,
     type: 3}
-  bulletNavig: {fileID: 0}
+  towerTransform: {fileID: 5078300981427184909}
+  bulletNavig: {fileID: 2973041112476610358}

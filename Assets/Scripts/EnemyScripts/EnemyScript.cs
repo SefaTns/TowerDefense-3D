@@ -31,7 +31,7 @@ public class EnemyScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("leftDoor") || other.gameObject.CompareTag("rightDoor"))
+        if (other.gameObject.CompareTag("leftDoor") || other.gameObject.CompareTag("rightDoor") && IsDeath)
         {
             agent.isStopped = true;
             anim.SetBool("attackBool", true);
@@ -44,13 +44,16 @@ public class EnemyScript : MonoBehaviour
                 anim.SetBool("walkBool", true);
             }
         }
-        if(IsDeath) { anim.SetBool("deathBool", true);}
-        
+        if (IsDeath)
+        {
+            setDeath();
+        }
+
     }
     private IEnumerator AnimWait()
     {
         agent.isStopped = true;
-        anim.SetBool("deathBool", false);
+        //anim.SetBool("deathBool", false);
         yield return new WaitForSeconds(wait);
         agent.isStopped = false;
         anim.SetBool("walkBool", true);
@@ -69,27 +72,31 @@ public class EnemyScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Bullet"))
         {
-            //var gun = other.gameObject.GetComponent<Bullet>();
+            var gun = other.gameObject.GetComponent<Bullet>();
 
-            var gun = FindObjectOfType<Bullet>();
-
-            if (this.HealtMove - gun.Damage > 0)
+            if (this.HealtMove - gun.Damage > 0 && IsDeath == false)
             {
                 this.HealtMove -= gun.Damage;
             }
             else
             {
                 this.IsDeath = true;
-                agent.isStopped = true;
-                anim.SetBool("deathBool", true);
-          
-                //Destroy(this.gameObject);
+                
             }
             Destroy(other.gameObject);
 
+            //if(isDeath) { setDeath(); }
 
         }
     }
+
+    private void setDeath()
+    {
+        agent.isStopped = true;
+        anim.SetTrigger("deathTrig");
+        Destroy(this.gameObject, 5f);
+    }
+
 
     public void damageControl(float damage, float armor, float magicResistance) // Zırh ve Büyü direnci gibi kontroller"
     {
