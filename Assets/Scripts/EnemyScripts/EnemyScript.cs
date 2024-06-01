@@ -51,7 +51,6 @@ public class EnemyScript : MonoBehaviour
     private IEnumerator AnimWait()
     {
         agent.isStopped = true;
-        //anim.SetBool("deathBool", false);
         yield return new WaitForSeconds(wait);
         agent.isStopped = false;
         anim.SetBool("walkBool", true);
@@ -61,14 +60,14 @@ public class EnemyScript : MonoBehaviour
     {
         if (!isDeath)
         {
-            //if (other.gameObject.CompareTag("Door"))
-            //{
-            //    transform.DOMove(MapManager.instance.tower.position, 1).OnComplete(() =>
-            //    {
-            //        Destroy(this.gameObject);
-            //    });
+            if (other.gameObject.CompareTag("Door"))
+            {
+                transform.DOMove(MapManager.instance.tower.position, 1).OnComplete(() =>
+                {
+                    Destroy(this.gameObject);
+                });
 
-            //}
+            }
 
             if (other.gameObject.CompareTag("Bullet"))
             {
@@ -85,18 +84,13 @@ public class EnemyScript : MonoBehaviour
                     if (isDeath) { setDeath(); }
                 }
                 Destroy(other.gameObject);
-
-                //if(isDeath) { setDeath(); }
-
             }
         }
     }
-
     private void setDeath()
     {
         if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
         {
-            Debug.Log("Navmesh Aktif");
             agent.isStopped = true;
             StartCoroutine(DisableNavMeshAgent());
         }
@@ -105,9 +99,6 @@ public class EnemyScript : MonoBehaviour
             Debug.LogWarning("NavMeshAgent is not active or not on a NavMesh.");
         }
         anim.SetTrigger("deathTrig");
-        Debug.Log("Ölüm anim");
-
-        // Delay the destruction of the game object to allow the death animation to play
         Destroy(gameObject, 5f);
     }
 
@@ -120,7 +111,6 @@ public class EnemyScript : MonoBehaviour
             agent.enabled = false;
         }
     }
-
 
     public void damageControl(float damage, float armor, float magicResistance) // Zırh ve Büyü direnci gibi kontroller"
     {

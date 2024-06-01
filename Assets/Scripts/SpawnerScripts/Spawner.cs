@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if(waveIsDone)
+        if(waveIsDone && k < enemyPrefabs.Length)
         {
             StartCoroutine(waveSpawner());
         }

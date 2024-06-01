@@ -40,7 +40,7 @@ public class YayWeapon : AbstractWeapon
         {
             //Bullet bullet = Instantiate(WeaponBullet, transform.position, rotation);
             //bullet.SetTarget(currentEnemy.transform);
-            LoadArrow(bulletNavig, currentEnemy);
+            //LoadArrow(bulletNavig, currentEnemy);
         }
     }
 

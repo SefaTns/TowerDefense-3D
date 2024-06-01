@@ -42,52 +42,52 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05
+      value: 0.06476175
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05
+      value: 0.06476175
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05
+      value: 0.06476175
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.22412288
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.03544116
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.49
+      value: -6.868263
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.57592356
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.8175035
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
@@ -97,7 +97,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -109.671
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
@@ -152,11 +152,36 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2973041112476610358}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3147737864023737511, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
+    - targetCorrespondingSourceObject: {fileID: 4951178628523241345, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4981707426641949694}
+      addedObject: {fileID: 6063578773211981946}
   m_SourcePrefab: {fileID: 100100000, guid: 8a8458c259d26a44cb54c31ea7abe9c7, type: 3}
+--- !u!1 &379736208070372711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4951178628523241345, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 4752149364703576806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6063578773211981946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379736208070372711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184eec5d74b99764e909c5e19c762f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Top Tower
+  weaponRadius: 1.5
+  weaponFireRite: 1.5
+  bulletPrefab: {fileID: -4220524358580789128, guid: ddaebb5a692f12541833b9ae58f8cca9,
+    type: 3}
+  towerTransform: {fileID: 5078300981427184909}
+  bulletNavig: {fileID: 2973041112476610358}
 --- !u!4 &5078300981427184909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
@@ -169,27 +194,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4752149364703576806}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7664005354873669185 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3147737864023737511, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4752149364703576806}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4981707426641949694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7664005354873669185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 184eec5d74b99764e909c5e19c762f68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponName: Top Tower
-  weaponRadius: 1.5
-  weaponFireRite: 1.5
-  bulletPrefab: {fileID: 0}
-  towerTransform: {fileID: 5078300981427184909}
-  bulletNavig: {fileID: 2973041112476610358}

@@ -44,6 +44,7 @@ public abstract class AbstractWeapon : MonoBehaviour
         var enemy = FindObjectOfType<EnemyScript>();
         if (!enemy.IsDeath)
         {
+            Debug.Log("Weapon : " + enemy.IsDeath);
             Bullet bullet = Instantiate(WeaponBullet, konum.position, Quaternion.identity);
             bullet.SetTarget(currentEnemy.transform);
         }
