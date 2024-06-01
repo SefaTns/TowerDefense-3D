@@ -36,11 +36,12 @@ public class TopWeapon : AbstractWeapon
                     distance = dist;
                 }
             }
-        }
+        } 
         if (currentEnemy)
         {
             LoadArrow(bulletNavig, currentEnemy);
         }
+
     }
 
     private void Update()

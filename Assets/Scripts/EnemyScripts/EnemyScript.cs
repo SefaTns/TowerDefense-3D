@@ -108,7 +108,7 @@ public class EnemyScript : MonoBehaviour
         Debug.Log("Ölüm anim");
 
         // Delay the destruction of the game object to allow the death animation to play
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 1f);
     }
 
     private IEnumerator DisableNavMeshAgent()
