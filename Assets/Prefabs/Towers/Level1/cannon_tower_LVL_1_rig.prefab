@@ -42,17 +42,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.07
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.07
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.07
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
@@ -112,27 +112,32 @@ PrefabInstance:
     - target: {fileID: 1873567483714858872, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.50635916
+      value: 0.009052188
       objectReference: {fileID: 0}
     - target: {fileID: 1873567483714858872, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5063593
+      value: -0.009052188
       objectReference: {fileID: 0}
     - target: {fileID: 1873567483714858872, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.49355894
+      value: 0.70704883
       objectReference: {fileID: 0}
     - target: {fileID: 1873567483714858872, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.49355885
+      value: 0.70704883
       objectReference: {fileID: 0}
     - target: {fileID: 1873567483714858872, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873567483714858872, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1873567483714858872, guid: 8a8458c259d26a44cb54c31ea7abe9c7,
         type: 3}
@@ -185,7 +190,6 @@ MonoBehaviour:
   weaponName: Top Tower
   weaponRadius: 1.5
   weaponFireRite: 1.5
-  bulletPrefab: {fileID: 8933080374496484249, guid: ddaebb5a692f12541833b9ae58f8cca9,
-    type: 3}
+  bulletPrefab: {fileID: 0}
   towerTransform: {fileID: 5078300981427184909}
   bulletNavig: {fileID: 2973041112476610358}

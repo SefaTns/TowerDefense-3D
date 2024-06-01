@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if(waveIsDone && EnemyControl())
+        if(waveIsDone)
         {
             StartCoroutine(waveSpawner());
         }
