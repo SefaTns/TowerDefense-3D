@@ -39,11 +39,12 @@ public class TopWeapon : AbstractWeapon
                 }
 
             }
-        }
+        } 
         if (currentEnemy)
         {
             LoadArrow(bulletNavig, currentEnemy);
         }
+
     }
 
     //private void OnTriggerEnter(Collider other)
