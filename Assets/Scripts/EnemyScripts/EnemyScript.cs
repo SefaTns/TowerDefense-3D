@@ -7,7 +7,7 @@ using UnityEditor;
 
 public class EnemyScript : MonoBehaviour
 {
-    [SerializeField] private float healthMove;
+    [SerializeField] public float healthMove;
     [SerializeField] private float damage;
     [SerializeField] private float magicResistance;
     [SerializeField] private float armor;
@@ -16,6 +16,8 @@ public class EnemyScript : MonoBehaviour
     private Animator anim;
     private NavMeshAgent agent;
     private float wait = 1f;
+
+    
 
     private void Awake()
     {

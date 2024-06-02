@@ -1,11 +1,14 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class BarbarianEnemy : EnemyScript
 {
+
+
     //private Animator anim;
     //private NavMeshAgent agent;
     //private float wait = 2f;
@@ -79,5 +82,6 @@ public class BarbarianEnemy : EnemyScript
 
     //    }
     //}
+
 
 }
