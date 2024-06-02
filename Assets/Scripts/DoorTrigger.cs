@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
-public class DoorTrigger : MonoBehaviour
+using UnityEngine;public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] private float doorHealt;
     private bool canTrigger = true;
     private float waitTime = 2.4f;
 
-    private void OnTriggerStay(Collider other)
+
+    public void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy") && canTrigger)
         {
             StartCoroutine(TriggerCooldown());
-            
             var enemyDamage = other.gameObject.GetComponent<EnemyScript>();
 
             this.DoorHealt -= enemyDamage.Damage;
