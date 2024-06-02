@@ -60,7 +60,7 @@ public class Spawner : MonoBehaviour
         waveIsDone = false;
         string enemy;
         yield return new WaitForSeconds(timeBeetwenWaves);
-        Debug.Log(enemyPrefabs[k].name+" geliyor...");
+        //Debug.Log(enemyPrefabs[k].name+" geliyor...");
         enemy = enemyPrefabs[k].name;
 
         if (!enemyNames.Contains(enemy))
@@ -74,7 +74,7 @@ public class Spawner : MonoBehaviour
                     break;
                 }
             }
-            Debug.Log("bu düşman daha önce gelmedi");
+            //Debug.Log("bu düşman daha önce gelmedi");
             for (int i = 0; i < enemyCount; i++)
             {
                 GameObject enemyClone = Instantiate(enemyPrefabs[k], spawnTransform.position, Quaternion.identity);
@@ -82,13 +82,13 @@ public class Spawner : MonoBehaviour
             }
         }else
         {
-            Debug.Log("bu düşman daha önce geldi");
+            //Debug.Log("bu düşman daha önce geldi");
             enemyPrefabs[k].GetComponent<EnemyScript>().healthMove += 10.0f;
             GameObject enemyClone = Instantiate(enemyPrefabs[k], spawnTransform.position, Quaternion.identity);
 
             yield return new WaitForSeconds(spawnRate);
         }
-        Debug.Log(enemyPrefabs[k].name + enemyPrefabs[k].GetComponent<EnemyScript>().healthMove);
+        //Debug.Log(enemyPrefabs[k].name + enemyPrefabs[k].GetComponent<EnemyScript>().healthMove);
         k++;
         spawnRate -= 0.1f;
         yield return new WaitForSeconds(timeBeetwenWaves);

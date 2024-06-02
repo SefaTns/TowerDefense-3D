@@ -15,7 +15,6 @@ using UnityEngine;public class DoorTrigger : MonoBehaviour
             var enemyDamage = other.gameObject.GetComponent<EnemyScript>();
 
             this.DoorHealt -= enemyDamage.Damage;
-            Debug.Log("Kapý Can : " + this.DoorHealt);
 
             if (this.DoorHealt <= 0)
             {
