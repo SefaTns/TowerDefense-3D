@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
     }
        
 
-private void Update()
+    private void Update()
     {
         if(waveIsDone && k < enemyPrefabs.Length)
         {

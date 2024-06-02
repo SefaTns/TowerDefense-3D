@@ -9,7 +9,7 @@ public class TopWeapon : AbstractWeapon
     private EnemyScript currentEnemy;
     [SerializeField] private Transform bulletNavig;
 
-    //private List<GameObject> enemiesList = new List<GameObject>();
+    private List<GameObject> enemiesList = new List<GameObject>();
     private void Start()
     {
         InvokeRepeating(nameof(ScanArea), 0, WeaponFireRite);
@@ -24,6 +24,7 @@ public class TopWeapon : AbstractWeapon
     public void ScanArea()
     {
         enemies = Physics.OverlapSphere(TowerTransform().position, WeaponRadius);
+        Debug.Log("Enemies Length : " + enemies.Length);
 
         float distance = float.MaxValue;
 
@@ -39,7 +40,9 @@ public class TopWeapon : AbstractWeapon
                 }
 
             }
-        } 
+            else
+                currentEnemy = null;
+        }
         if (currentEnemy)
         {
             LoadArrow(bulletNavig, currentEnemy);
@@ -53,8 +56,6 @@ public class TopWeapon : AbstractWeapon
     //    {
     //        Debug.Log("Düþman alana girdi");
     //        enemiesList.Add(other.gameObject);
-    //        UpdateTarget();
-
     //    }
     //}
 
@@ -62,39 +63,31 @@ public class TopWeapon : AbstractWeapon
     //{
     //    if (other.gameObject.CompareTag("Enemy"))
     //    {
-    //        Debug.Log("Düþma alandan çýktý");
+    //        Debug.Log("Düþman alandan çýktý");
     //        enemiesList.Remove(other.gameObject);
-    //        currentEnemy = null;
-    //        UpdateTarget();
     //    }
     //}
 
-    //private void UpdateTarget()
+    //private void ScanArea()
     //{
-    //    if (currentEnemy != null)
-    //    {
-    //        return;
-    //    }
-
     //    float distance = float.MaxValue;
 
-    //    foreach(GameObject enemy in enemiesList)
+    //    foreach (GameObject enemy in enemiesList)
     //    {
-    //        if (enemy == null) return;
-
-    //        float dist = Vector3.Distance(bulletNavig.position, enemy.transform.position);
-
-    //        if (dist < distance)
+    //        if (enemy.gameObject.CompareTag("Enemy"))
     //        {
-    //            distance = dist;
-    //            currentEnemy = enemy;
+    //            float dist = Vector3.Distance(bulletNavig.position, enemy.transform.position);
+    //            if (dist <= distance)
+    //            {
+    //                currentEnemy = enemy;
+    //                distance = dist;
+    //            }
     //        }
     //    }
 
-
+    //    if(currentEnemy && enemiesList.Count > 0)
+    //        LoadArrow(bulletNavig, currentEnemy);
     //}
-
-
 
     private void Update()
     {
