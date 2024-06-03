@@ -242,6 +242,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9048144036642547841}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &3738405071953229900 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5652031365515808973, guid: 56b4113f8aac28746b1da1eaa70f43dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 9048144036642547841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7876300544124238373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1215772418024952484, guid: 56b4113f8aac28746b1da1eaa70f43dd,
@@ -265,5 +271,5 @@ MonoBehaviour:
   weaponFireRite: 1.5
   bulletPrefab: {fileID: -4220524358580789128, guid: b8e663b72fbfa354e80b567fbb84d0c8,
     type: 3}
-  towerTransform: {fileID: 0}
-  bulletNavig: {fileID: 0}
+  towerTransform: {fileID: 3738405071953229900}
+  bulletNavig: {fileID: 6712791008978963446}

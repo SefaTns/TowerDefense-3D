@@ -1,37 +1,47 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public int currentLevelNumber;
     private int earnedStars;
 
-    // Seviye tamamlandığında bu metodu çağırın
+    // Seviye tamamlandÃ½Ã°Ã½nda bu metodu Ã§aÃ°Ã½rÃ½n
     public void OnLevelCompleted()
     {
-        // Burada earnedStars değeri seviye performansına göre hesaplanmalıdır
-        earnedStars = CalculateStars(); // Örneğin, 1 ile 3 arasında bir değer döndüren bir metod
+        // Burada earnedStars deÃ°eri seviye performansÃ½na gÃ¶re hesaplanmalÃ½dÃ½r
+        earnedStars = CalculateStars(); // Ã–rneÃ°in, 1 ile 3 arasÃ½nda bir deÃ°er dÃ¶ndÃ¼ren bir metod
 
-        // GameDataManager'dan CompleteLevel metodunu çağırın
+        // GameDataManager'dan CompleteLevel metodunu Ã§aÃ°Ã½rÃ½n
         FindObjectOfType<GameDataManager>().CompleteLevel(currentLevelNumber, earnedStars);
     }
 
-    // Yıldızları hesaplayan örnek bir metod (kendi oyun mekaniklerinize göre uyarlayın)
+    // YÃ½ldÃ½zlarÃ½ hesaplayan Ã¶rnek bir metod (kendi oyun mekaniklerinize gÃ¶re uyarlayÃ½n)
     private int CalculateStars()
     {
-        // Bu metod, oyuncunun performansına göre yıldız sayısını hesaplamalıdır
-        // Örneğin, zaman, puan veya diğer kriterlere dayalı olabilir
-        return 3; // Basit bir örnek olarak 3 yıldız döndürüyoruz
+        // Bu metod, oyuncunun performansÃ½na gÃ¶re yÃ½ldÃ½z sayÃ½sÃ½nÃ½ hesaplamalÃ½dÃ½r
+        // Ã–rneÃ°in, zaman, puan veya diÃ°er kriterlere dayalÃ½ olabilir
+        return 3; // Basit bir Ã¶rnek olarak 3 yÃ½ldÃ½z dÃ¶ndÃ¼rÃ¼yoruz
     }
 
-    // Örnek olarak seviyeyi tamamlamayı tetiklemek için bir tuşa basma kontrolü ekleyin
+    // Ã–rnek olarak seviyeyi tamamlamayÃ½ tetiklemek iÃ§in bir tuÃ¾a basma kontrolÃ¼ ekleyin
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C)) // C tuşuna basıldığında seviye tamamlanmış sayılacak
+        if (Input.GetKeyDown(KeyCode.C)) // C tuÃ¾una basÃ½ldÃ½Ã°Ã½nda seviye tamamlanmÃ½Ã¾ sayÃ½lacak
         {
-            Debug.Log("Seviye Tamamlandı.");
+            Debug.Log("Seviye TamamlandÃ½.");
             OnLevelCompleted();
         }
     }
+
+    public void RestartLevel()
+    {
+        //// Aktif sahneyi yeniden yÃ¼kleyerek seviyeyi tekrar baÅŸlat
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex));
+        
+    }
+
 }
