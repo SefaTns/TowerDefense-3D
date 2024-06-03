@@ -6476,6 +6476,26 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Defence Point
       objectReference: {fileID: 0}
+    - target: {fileID: 3820230681291859733, guid: 13a6fefb66cc2c842933780ff5755a0a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6050895
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820230681291859733, guid: 13a6fefb66cc2c842933780ff5755a0a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.0453
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820230681291859733, guid: 13a6fefb66cc2c842933780ff5755a0a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2286
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820230681291859733, guid: 13a6fefb66cc2c842933780ff5755a0a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.5913
+      objectReference: {fileID: 0}
     - target: {fileID: 4125477008120868901, guid: 13a6fefb66cc2c842933780ff5755a0a,
         type: 3}
       propertyPath: m_IsTrigger

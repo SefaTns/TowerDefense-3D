@@ -5,24 +5,25 @@ using UnityEngine.UI;
 public class KaleKapisi : MonoBehaviour
 {
 
-    public Slider slider;
+    //public Slider slider;
 
     [SerializeField] private float doorHealt;
     private bool canTrigger = true;
     private float waitTime = 2.4f;
 
-    public void Start()
-    {
-        slider.maxValue = doorHealt;
-        slider.value = doorHealt;
-    }
+    //public void Start()
+    //{
+    //    slider.maxValue = doorHealt;
+    //    slider.value = doorHealt;
+    //}
 
     public void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy") && canTrigger)
         {
+            Debug.Log("Düþman kale kapýsýnda");
             StartCoroutine(TriggerCooldown());
-            slider.value -= 1;
+            //slider.value -= 1;
             var enemyDamage = other.gameObject.GetComponent<EnemyScript>();
 
             this.DoorHealt -= enemyDamage.Damage;
@@ -30,7 +31,7 @@ public class KaleKapisi : MonoBehaviour
 
             if (this.DoorHealt <= 0)
             {
-                if (this.gameObject.CompareTag("leftDoor") || this.gameObject.CompareTag("rightDoor"))
+                if (this.gameObject.CompareTag("Door"))
                 {
                     Destroy(this.gameObject);
                 }

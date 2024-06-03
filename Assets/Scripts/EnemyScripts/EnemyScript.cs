@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
-using UnityEditor;
+//using UnityEditor;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -48,6 +48,21 @@ public class EnemyScript : MonoBehaviour
                     anim.SetBool("walkBool", true);
                 }
             }
+
+            if (other.gameObject.CompareTag("Door"))
+            {
+                Debug.Log("Kale kapısı algılandı");
+                agent.isStopped = true;
+                anim.SetBool("attackBool", true);
+                var doorComp = other.gameObject.GetComponent<KaleKapisi>();
+
+                if (doorComp.DoorHealt <= 0)
+                {
+                    agent.isStopped = false;
+                    anim.SetBool("attackBool", false);
+                    anim.SetBool("walkBool", true);
+                }
+            }
         }
     }
     private IEnumerator AnimWait()
@@ -62,7 +77,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (!isDeath)
         {
-            if (other.gameObject.CompareTag("Door"))
+            if (other.gameObject.CompareTag("tower"))
             {
                 transform.DOMove(MapManager.instance.tower.position, 1).OnComplete(() =>
                 {

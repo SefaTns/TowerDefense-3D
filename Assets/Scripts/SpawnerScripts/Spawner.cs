@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
     int spawnIndex;
 
     public float spawnRate = 1.0f;
-    public float timeBeetwenWaves = 7.0f;
+    public float timeBeetwenWaves = 4.0f;
 
     public int enemyCount;
     private int k = 0;
@@ -76,6 +76,7 @@ public class Spawner : MonoBehaviour
                 }
             }
             spawnIndex = Random.Range(0, spawnTransform.Length);
+            Debug.Log(spawnIndex);
             //Debug.Log("bu düşman daha önce gelmedi");
             for (int i = 0; i < enemyCount; i++)
             {
@@ -93,7 +94,7 @@ public class Spawner : MonoBehaviour
         //Debug.Log(enemyPrefabs[k].name + enemyPrefabs[k].GetComponent<EnemyScript>().healthMove);
         k++;
         spawnRate -= 0.1f;
-        yield return new WaitForSeconds(timeBeetwenWaves);
+        yield return new WaitForSeconds(timeBeetwenWaves + 3);
         
         waveIsDone = true;
     }

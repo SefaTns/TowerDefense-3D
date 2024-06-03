@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;public class DoorTrigger : MonoBehaviour
+using UnityEngine;
+public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] private float doorHealt;
     private bool canTrigger = true;
@@ -26,7 +27,7 @@ using UnityEngine;public class DoorTrigger : MonoBehaviour
         }
     }
 
-    private IEnumerator TriggerCooldown()
+    public IEnumerator TriggerCooldown()
     {
         canTrigger = false;
         yield return new WaitForSeconds(waitTime);
