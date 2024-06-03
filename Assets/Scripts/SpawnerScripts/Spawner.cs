@@ -7,16 +7,17 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private Transform spawnTransform;
+    [SerializeField] private Transform[] spawnTransform;
+    int spawnIndex;
 
     public float spawnRate = 1.0f;
-    public float timeBeetwenWaves = 4.0f;
+    public float timeBeetwenWaves = 7.0f;
 
     public int enemyCount;
     private int k = 0;
 
     bool waveIsDone = true;
-    public string [] enemyNames;
+    private string [] enemyNames;
 
 
     public void Start()
@@ -74,17 +75,18 @@ public class Spawner : MonoBehaviour
                     break;
                 }
             }
+            spawnIndex = Random.Range(0, spawnTransform.Length);
             //Debug.Log("bu düşman daha önce gelmedi");
             for (int i = 0; i < enemyCount; i++)
             {
-                GameObject enemyClone = Instantiate(enemyPrefabs[k], spawnTransform.position, Quaternion.identity);
+                GameObject enemyClone = Instantiate(enemyPrefabs[k], spawnTransform[spawnIndex].position, Quaternion.identity);
                 yield return new WaitForSeconds(spawnRate);
             }
         }else
         {
             //Debug.Log("bu düşman daha önce geldi");
             enemyPrefabs[k].GetComponent<EnemyScript>().healthMove += 10.0f;
-            GameObject enemyClone = Instantiate(enemyPrefabs[k], spawnTransform.position, Quaternion.identity);
+            GameObject enemyClone = Instantiate(enemyPrefabs[k], spawnTransform[spawnIndex].position, Quaternion.identity);
 
             yield return new WaitForSeconds(spawnRate);
         }

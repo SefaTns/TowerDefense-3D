@@ -5810,36 +5810,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 50249848522e611458021c050cc50131,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 630858681021237813}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50249848522e611458021c050cc50131, type: 3}
---- !u!1 &53632448630695633 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 50249848522e611458021c050cc50131,
-    type: 3}
-  m_PrefabInstance: {fileID: 900688848921303936}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &630858681021237813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53632448630695633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc72f63fbfbbe064cbb5410cb8a3d5b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 4315889773131489356, guid: 8064acb75ea5b3c458c8f8ee0f9dba93, type: 3}
-  spawnTransform: {fileID: 0}
-  spawnRate: 3
-  timeBeetwenWaves: 3
-  enemyCount: 5
 --- !u!4 &861694689015856235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 50249848522e611458021c050cc50131,
@@ -31198,36 +31170,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 50249848522e611458021c050cc50131,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7621281115543009367}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50249848522e611458021c050cc50131, type: 3}
---- !u!1 &8206988492387785642 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 50249848522e611458021c050cc50131,
-    type: 3}
-  m_PrefabInstance: {fileID: 9017470191221810939}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7621281115543009367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8206988492387785642}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc72f63fbfbbe064cbb5410cb8a3d5b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 8566691579889783086, guid: d2ea9ed3ff1d1c24bb434f99ddcce5f4, type: 3}
-  spawnTransform: {fileID: 0}
-  spawnRate: 1
-  timeBeetwenWaves: 3
-  enemyCount: 5
 --- !u!4 &8840218767789015312 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 50249848522e611458021c050cc50131,

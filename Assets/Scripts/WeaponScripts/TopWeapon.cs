@@ -44,9 +44,10 @@ public class TopWeapon : AbstractWeapon
             }
 
         }
-        if (currentEnemy)
+        if (currentEnemy && currentEnemy.IsDeath == false)
         {
             LoadArrow(bulletNavig, currentEnemy);
+            Debug.Log(currentEnemy.ToString() + currentEnemy.IsDeath);
         }
 
     }
@@ -55,7 +56,8 @@ public class TopWeapon : AbstractWeapon
     {
         if (currentEnemy)
         {
-            Vector3 dir = currentEnemy.transform.position - bulletNavig.position;
+            Vector3 dir = (transform.position - currentEnemy.transform.position).normalized;
+            Debug.Log(dir.ToString());
             dir.y = 0;
             transform.rotation = Quaternion.LookRotation(dir);
         }
