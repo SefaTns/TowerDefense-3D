@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
-//using UnityEditor;
 
 public class EnemyScript : MonoBehaviour
 {
