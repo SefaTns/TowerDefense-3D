@@ -27219,10 +27219,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2932212982444385134}
-    - targetCorrespondingSourceObject: {fileID: 1046628172763319773, guid: 879ff63f29dcc7343bfb007a775b1957,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7205482526607546174}
     - targetCorrespondingSourceObject: {fileID: -4677237296440866189, guid: 879ff63f29dcc7343bfb007a775b1957,
         type: 3}
       insertIndex: -1
@@ -27231,10 +27227,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 327952948922458621}
-    - targetCorrespondingSourceObject: {fileID: -4677237296440866189, guid: 879ff63f29dcc7343bfb007a775b1957,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8670454181284031776}
   m_SourcePrefab: {fileID: 100100000, guid: 879ff63f29dcc7343bfb007a775b1957, type: 3}
 --- !u!1 &6028392181520877978 stripped
 GameObject:
@@ -27290,19 +27282,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8670454181284031776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6028392181520877978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: facda9a7d449e0142a43f152745d973a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorHealt: 0
 --- !u!1 &7077517922202881588 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1046628172763319773, guid: 879ff63f29dcc7343bfb007a775b1957,
@@ -27357,19 +27336,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7205482526607546174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7077517922202881588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: facda9a7d449e0142a43f152745d973a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorHealt: 0
 --- !u!4 &7724942983666672642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 879ff63f29dcc7343bfb007a775b1957,

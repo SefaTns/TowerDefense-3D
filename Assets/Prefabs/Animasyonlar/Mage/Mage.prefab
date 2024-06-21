@@ -108,6 +108,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1762200425806404590}
   m_SourcePrefab: {fileID: 100100000, guid: 25e737b2a0df63c4a8c4dd825340ceae, type: 3}
+--- !u!4 &6012001335598355933 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5215991901736301381, guid: 25e737b2a0df63c4a8c4dd825340ceae,
+    type: 3}
+  m_PrefabInstance: {fileID: 7274430899908909414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7508223564634334263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 25e737b2a0df63c4a8c4dd825340ceae,
@@ -130,6 +136,10 @@ MonoBehaviour:
   damage: 15
   magicResistance: 0
   armor: 0
+  hitlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  body: {fileID: 6012001335598355933}
 --- !u!95 &1298549302987205519
 Animator:
   serializedVersion: 5

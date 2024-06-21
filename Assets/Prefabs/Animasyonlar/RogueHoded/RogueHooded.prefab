@@ -130,6 +130,10 @@ MonoBehaviour:
   damage: 15
   magicResistance: 0
   armor: 0
+  hitlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  body: {fileID: 3967616193765941686}
 --- !u!95 &3926107567485716782
 Animator:
   serializedVersion: 5
@@ -223,3 +227,9 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &3967616193765941686 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5215991901736301381, guid: e981d15d2e945f94f9e7ca042c07d609,
+    type: 3}
+  m_PrefabInstance: {fileID: 41340434935459085}
+  m_PrefabAsset: {fileID: 0}

@@ -16,7 +16,11 @@ public class EnemyScript : MonoBehaviour
     private NavMeshAgent agent;
     private float wait = 1f;
 
-    
+    [SerializeField] private LayerMask hitlayer;
+    [SerializeField] private Transform body;
+    private RaycastHit hit;
+
+    private float nextAttackTime = 0f;
 
     private void Awake()
     {
@@ -27,42 +31,55 @@ public class EnemyScript : MonoBehaviour
         anim = GetComponent<Animator>();
         StartCoroutine(AnimWait());
         agent.SetDestination(MapManager.instance.tower.position);
-
+    }
+    private void Update()
+    {
+        if (Time.time >= nextAttackTime)
+        {
+            Attack();
+        }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void Attack()
     {
-        if (!isDeath)
+        if (!this.IsDeath)
         {
-            if (other.gameObject.CompareTag("leftDoor") || other.gameObject.CompareTag("rightDoor"))
-            {
-                agent.isStopped = true;
-                anim.SetBool("attackBool", true);
+            Vector3 forward = transform.TransformDirection(Vector3.forward) * 0.22f;
+            //Debug.DrawRay(transform.position, forward, Color.red, 1.0f);
 
-                var doorComp = other.gameObject.GetComponent<DoorTrigger>();
-                if (doorComp.DoorHealt <= 0)
+            if (Physics.Raycast(body.position, forward, out hit, 0.22f, hitlayer))
+            {
+                if (hit.collider.CompareTag("ShieldDoor"))
                 {
-                    agent.isStopped = false;
-                    anim.SetBool("attackBool", false);
-                    anim.SetBool("walkBool", true);
+                    DoorTrigger doorComp = hit.transform.GetComponent<DoorTrigger>();
+                    Debug.Log(doorComp.DoorHealt);
+                    if (doorComp.DoorHealt >= 0)
+                    {
+                        agent.isStopped = true;
+                        anim.SetBool("attackBool", true);
+                        
+                        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+                        float animationDuration = stateInfo.length;
+                        nextAttackTime = Time.time + animationDuration;
+
+                        doorComp.DoorHealt -= damage;
+                    }
+                    else
+                    {
+                        Anim_Agent_Set();
+                        Destroy(hit.collider.gameObject);
+                    }
                 }
             }
-
-            if (other.gameObject.CompareTag("Door"))
-            {
-                Debug.Log("Kale kapısı algılandı");
-                agent.isStopped = true;
-                anim.SetBool("attackBool", true);
-                var doorComp = other.gameObject.GetComponent<KaleKapisi>();
-
-                if (doorComp.DoorHealt <= 0)
-                {
-                    agent.isStopped = false;
-                    anim.SetBool("attackBool", false);
-                    anim.SetBool("walkBool", true);
-                }
-            }
+            
         }
+    }
+
+    private void Anim_Agent_Set()
+    {
+        agent.isStopped = false;
+        anim.SetBool("attackBool", false);
+        anim.SetBool("walkBool", true);
     }
     private IEnumerator AnimWait()
     {
@@ -74,9 +91,9 @@ public class EnemyScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isDeath)
+        if (!IsDeath)
         {
-            if (other.gameObject.CompareTag("tower"))
+            if (other.gameObject.CompareTag("PathFinish"))
             {
                 transform.DOMove(MapManager.instance.tower.position, 1).OnComplete(() =>
                 {
@@ -96,13 +113,14 @@ public class EnemyScript : MonoBehaviour
                 else
                 {
                     this.IsDeath = true;
-                    Debug.Log("Trigger : " + IsDeath);
+                    //Debug.Log("Trigger : " + IsDeath);
                     if (isDeath) { setDeath(); }
                 }
                 Destroy(other.gameObject);
             }
         }
     }
+
     private void setDeath()
     {
         if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
@@ -128,37 +146,37 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    public void damageControl(float damage, float armor, float magicResistance) // Zırh ve Büyü direnci gibi kontroller"
-    {
-        float arm = armor - this.Armor;
-        float mag = magicResistance - this.MagicResistance;
+    //public void damageControl(float damage, float armor, float magicResistance) // Zırh ve Büyü direnci gibi kontroller"
+    //{
+    //    float arm = armor - this.Armor;
+    //    float mag = magicResistance - this.MagicResistance;
 
-        if (armor > this.Armor)
-            this.HealtMove -= damage + (damage * arm) / 100;
-        else
-        {
-            if (damage + arm < this.Armor)
-            {
-                float yuzde = (damage * arm) / 100;
-                this.HealtMove -= yuzde;
-            }
-            else
-                this.HealtMove -= damage - arm;
-        }
+    //    if (armor > this.Armor)
+    //        this.HealtMove -= damage + (damage * arm) / 100;
+    //    else
+    //    {
+    //        if (damage + arm < this.Armor)
+    //        {
+    //            float yuzde = (damage * arm) / 100;
+    //            this.HealtMove -= yuzde;
+    //        }
+    //        else
+    //            this.HealtMove -= damage - arm;
+    //    }
 
-        if (magicResistance > this.MagicResistance)
-            this.HealtMove -= damage + (damage * mag) / 100;
-        else
-        {
-            if (damage + mag < this.MagicResistance)
-            {
-                float yuzde = (damage * mag) / 100;
-                this.HealtMove -= yuzde;
-            }
-            else
-                this.HealtMove -= damage - mag;
-        }
-    }
+    //    if (magicResistance > this.MagicResistance)
+    //        this.HealtMove -= damage + (damage * mag) / 100;
+    //    else
+    //    {
+    //        if (damage + mag < this.MagicResistance)
+    //        {
+    //            float yuzde = (damage * mag) / 100;
+    //            this.HealtMove -= yuzde;
+    //        }
+    //        else
+    //            this.HealtMove -= damage - mag;
+    //    }
+    //}
 
     public float HealtMove
     {

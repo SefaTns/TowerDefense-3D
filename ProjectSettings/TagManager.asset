@@ -9,9 +9,9 @@ TagManager:
   - Button
   - Enemy
   - Defence Point
-  - Door
-  - rightDoor
-  - leftDoor
+  - tower
+  - PathFinish
+  - ShieldDoor
   layers:
   - Default
   - TransparentFX
@@ -19,7 +19,7 @@ TagManager:
   - Sezon
   - Water
   - UI
-  - 
+  - ShieldDoor
   - 
   - 
   - 

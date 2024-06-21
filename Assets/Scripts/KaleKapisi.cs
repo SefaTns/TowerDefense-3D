@@ -9,7 +9,7 @@ public class KaleKapisi : MonoBehaviour
 
     [SerializeField] private float doorHealt;
     private bool canTrigger = true;
-    private float waitTime = 2.4f;
+    private float waitTime = 1.4f;
 
     //public void Start()
     //{
