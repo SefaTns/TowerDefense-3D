@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
+using Unity.VisualScripting;
+using System.Linq;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -22,12 +24,16 @@ public class EnemyScript : MonoBehaviour
 
     private float nextAttackTime = 0f;
 
+    bool kapı = false;
+    Animator [] attack; 
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
     private void Start()
     {
+        attack = new Animator [10];
         anim = GetComponent<Animator>();
         StartCoroutine(AnimWait());
         agent.SetDestination(MapManager.instance.tower.position);
@@ -36,44 +42,118 @@ public class EnemyScript : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
-            Attack();
+            if (KapıKontrol())
+            {
+                hareket();
+            }
+            else
+            {
+                agent.isStopped = false;
+                anim.SetBool("attackBool", false);
+                anim.SetBool("walkBool", true);
+            }
         }
     }
 
-    private void Attack()
+    private bool KapıKontrol()
     {
-        if (!this.IsDeath)
+        Vector3 forward = transform.TransformDirection(Vector3.forward) * 0.22f;
+
+        if (Physics.Raycast(body.position, forward, out hit, 0.22f, hitlayer))
         {
-            Vector3 forward = transform.TransformDirection(Vector3.forward) * 0.22f;
-            //Debug.DrawRay(transform.position, forward, Color.red, 1.0f);
 
-            if (Physics.Raycast(body.position, forward, out hit, 0.22f, hitlayer))
+            if (hit.collider.CompareTag("ShieldDoor"))
             {
-                if (hit.collider.CompareTag("ShieldDoor"))
+                
+                foreach (int i in Enumerable.Range(0, attack.Length))
                 {
-                    DoorTrigger doorComp = hit.transform.GetComponent<DoorTrigger>();
-                    Debug.Log(doorComp.DoorHealt);
-                    if (doorComp.DoorHealt >= 0)
+                    if (attack[i] == null)
                     {
-                        agent.isStopped = true;
-                        anim.SetBool("attackBool", true);
-                        
-                        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-                        float animationDuration = stateInfo.length;
-                        nextAttackTime = Time.time + animationDuration;
-
-                        doorComp.DoorHealt -= damage;
-                    }
-                    else
-                    {
-                        Anim_Agent_Set();
-                        Destroy(hit.collider.gameObject);
+                        attack[i] = this.anim;
+                        break;
                     }
                 }
+                DoorTrigger doorComp = hit.transform.GetComponent<DoorTrigger>();
+                Debug.Log(doorComp.DoorHealt);
+                if (doorComp.DoorHealt >= 0)
+                {
+                    doorComp.DoorHealt -= damage;
+                    kapı = true;
+                }
+                else
+                {
+                    Destroy(hit.collider.gameObject);
+                    kapı = false;
+                }
             }
-            
+            else
+            {
+                kapı = false;
+            }
+        }
+        return kapı;
+    }
+
+    public void hareket()
+    {
+        
+        foreach (int i in Enumerable.Range(0, attack.Length))
+        {
+            if (attack[i] != null)
+            {
+
+                agent.isStopped = true;
+                attack[i].SetBool("attackBool", true);
+                AnimatorStateInfo stateInfo = attack[i].GetCurrentAnimatorStateInfo(0);
+                float animationDuration = stateInfo.length;
+                nextAttackTime = Time.time + animationDuration;
+
+
+                //    agent.isStopped = true;
+                //    attack[i].SetBool("walkBool", false);
+                //    attack[i].SetBool("attackBool", true);
+            }
         }
     }
+
+
+    //private void Attack()
+    //{
+    //    if (!this.IsDeath)
+    //    {
+    //        Vector3 forward = transform.TransformDirection(Vector3.forward) * 0.22f;
+    //        //Debug.DrawRay(transform.position, forward, Color.red, 1.0f);
+
+    //        if (Physics.Raycast(body.position, forward, out hit, 0.22f, hitlayer))
+    //        {
+
+    //            if (hit.collider.CompareTag("ShieldDoor") && kapı)
+    //            {
+    //                DoorTrigger doorComp = hit.transform.GetComponent<DoorTrigger>();
+    //                Debug.Log(doorComp.DoorHealt);
+    //                if (doorComp.DoorHealt >= 0)
+    //                {
+    //                    agent.isStopped = true;
+    //                    anim.SetBool("attackBool", true);
+    //                    AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+    //                    float animationDuration = stateInfo.length;
+    //                    nextAttackTime = Time.time + animationDuration;
+
+    //                    doorComp.DoorHealt -= damage;
+    //                }
+    //                else
+    //                { 
+    //                    if(hit.collider.CompareTag("ShieldDoor"))
+    //                    {
+    //                        Destroy(hit.collider.gameObject);
+    //                        Debug.Log("kapı kırıldı düsman yüricek");
+    //                    }
+    //                    Anim_Agent_Set();
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 
     private void Anim_Agent_Set()
     {

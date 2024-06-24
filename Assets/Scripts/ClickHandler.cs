@@ -28,24 +28,32 @@ public class ClickHandler : MonoBehaviour
                 Collider clickedCollider = hit.collider;
                 if (clickedCollider.CompareTag("Defence Point"))
                 {
-
-                    bool isPositionDuplicated = CheckForDuplicatePosition(hit.collider.transform.position);
-                    hitPosition = hit.transform.position;
-                    Debug.Log("duplicated: " + isPositionDuplicated);
-                    if (isPositionDuplicated)
+                    //eğer tıkladığımız noktada daha önceden panel aktifse tekrar tıklandığı için paneli kapat 
+                    if (selectionPanel.activeSelf)
                     {
-                        Debug.Log("Yeni pozisyon daha önce girilmiş.");
-                        return;
+                        selectionPanel.SetActive(false);
                     }
+                    else //eğer tıklanılan yer yerleştirme noktası değilse yani hangi kuleyi yerleştireceğimizi
+                    //seçtiysek ve tıkladığımız yerde kule yoksa yeni kule yerleştirme işlemini yap   
+                    {
+                        bool isPositionDuplicated = CheckForDuplicatePosition(hit.collider.transform.position);
+                        hitPosition = hit.transform.position;
+                        Debug.Log("duplicated: " + isPositionDuplicated);
+                        if (isPositionDuplicated)
+                        {
+                            Debug.Log("Yeni pozisyon daha önce girilmiş.");
+                            return;
+                        }
 
-                    if (!isPositionDuplicated)
-                    {
-                        Debug.Log("Yeni pozisyon girildi.");
-                        ShowSelectionPanel(hitPosition); // Paneli göster
-                    }
-                    else
-                    {
-                        Debug.Log("Dizide boş bir eleman yok.");
+                        if (!isPositionDuplicated)
+                        {
+                            Debug.Log("Yeni pozisyon girildi.");
+                            ShowSelectionPanel(hitPosition); // Paneli göster
+                        }
+                        else
+                        {
+                            Debug.Log("Dizide boş bir eleman yok.");
+                        }
                     }
                 }
             }
@@ -91,34 +99,6 @@ public class ClickHandler : MonoBehaviour
         // Paneli aktif hale getiriyoruz
         selectionPanel.SetActive(true);
     }
-
-    //bool CheckForEmptySpot()
-    //{
-    //    // positions dizisi null ise (başlatılmamış)
-    //    if (positions == null)
-    //    {
-    //        // positions dizisini bir elemanlı olarak başlat
-    //        positions = new Vector3[1];
-    //        // Bir boş yer olduğunu bildir
-    //        return true;
-    //    }
-    //    else
-    //    {
-    //        // positions dizisi null değilse
-    //        // For döngüsü ile tüm elemanları kontrol et
-    //        for (int i = 0; i < positions.Length; i++)
-    //        {
-    //            // Eğer herhangi bir eleman Vector3.zero ise
-    //            if (positions[i] == Vector3.zero)
-    //            {
-    //                // Bir boş yer olduğunu bildir
-    //                return true;
-    //            }
-    //        }
-    //        // Tüm elemanlar dolu ise
-    //        return true;
-    //    }
-    //}
 
     bool CheckForDuplicatePosition(Vector3 newPosition)
     {

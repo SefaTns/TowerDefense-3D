@@ -76,7 +76,7 @@ public class Spawner : MonoBehaviour
                 }
             }
             spawnIndex = Random.Range(0, spawnTransform.Length);
-            Debug.Log(spawnIndex);
+           // Debug.Log(spawnIndex);
             //Debug.Log("bu düşman daha önce gelmedi");
             for (int i = 0; i < enemyCount; i++)
             {
