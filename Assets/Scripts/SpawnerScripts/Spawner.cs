@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private Transform[] spawnTransform;
-    int spawnIndex;
+    int spawnIndex = -1;
 
     public float spawnRate = 1.0f;
     public float timeBeetwenWaves = 4.0f;
@@ -50,7 +50,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if(waveIsDone && k < enemyPrefabs.Length)
+        if(waveIsDone && k < enemyPrefabs.Length && EnemyControl())
         {
             StartCoroutine(waveSpawner());
         }
@@ -66,7 +66,7 @@ public class Spawner : MonoBehaviour
 
         if (!enemyNames.Contains(enemy))
         {
-            for(int a =0; a < enemyNames.Length; a++)
+            for(int a = 0; a < enemyNames.Length; a++)
             {
 
                 if (enemyNames[a] == null)
@@ -75,7 +75,13 @@ public class Spawner : MonoBehaviour
                     break;
                 }
             }
+            int tempIndex = spawnIndex;
             spawnIndex = Random.Range(0, spawnTransform.Length);
+
+            while (spawnIndex != tempIndex)
+            {
+                spawnIndex = Random.Range(0, spawnTransform.Length);
+            }
            // Debug.Log(spawnIndex);
             //Debug.Log("bu düşman daha önce gelmedi");
             for (int i = 0; i < enemyCount; i++)

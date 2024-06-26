@@ -50,37 +50,46 @@ public class EnemyScript : MonoBehaviour
 
             if (Physics.Raycast(body.position, forward, out hit, 0.22f, hitlayer))
             {
-                if (hit.collider.CompareTag("ShieldDoor"))
+                DoorTrigger doorComp = hit.transform.GetComponent<DoorTrigger>();
+                if (hit.collider.CompareTag("ShieldDoor") && doorComp.CanTrigger)
                 {
-                    DoorTrigger doorComp = hit.transform.GetComponent<DoorTrigger>();
-                    Debug.Log(doorComp.DoorHealt);
-                    if (doorComp.DoorHealt >= 0)
+                    if(doorComp.DoorHealt > 0)
                     {
-                        agent.isStopped = true;
-                        anim.SetBool("attackBool", true);
-
+                        AnimAttack();
                         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
                         float animationDuration = stateInfo.length;
                         nextAttackTime = Time.time + animationDuration;
 
-                        doorComp.DoorHealt -= damage;
+                        doorComp.DoorHealt -= this.Damage;
                     }
                     else
                     {
-                        Anim_Agent_Set();
+                        doorComp.CanTrigger = false;
+                        AnimWalk();
                         Destroy(hit.collider.gameObject);
                     }
                 }
+            }
+            else
+            {
+                AnimWalk();
             }
 
         }
     }
 
-    private void Anim_Agent_Set()
+    private void AnimWalk()
     {
         agent.isStopped = false;
         anim.SetBool("attackBool", false);
         anim.SetBool("walkBool", true);
+    }
+
+    private void AnimAttack()
+    {
+        agent.isStopped = true;
+        anim.SetBool("walkBool", false);
+        anim.SetBool("attackBool",true);
     }
     private IEnumerator AnimWait()
     {
@@ -106,6 +115,7 @@ public class EnemyScript : MonoBehaviour
             if (other.gameObject.CompareTag("Bullet"))
             {
                 var gun = other.gameObject.GetComponent<Bullet>();
+                CoinManager coin = gameObject.GetComponent<CoinManager>();
 
                 if (this.HealtMove - gun.Damage > 0)
                 {
@@ -115,9 +125,17 @@ public class EnemyScript : MonoBehaviour
                 {
                     this.IsDeath = true;
                     //Debug.Log("Trigger : " + IsDeath);
-                    if (isDeath) { setDeath(); }
+                    if (isDeath) 
+                    { 
+                        setDeath();
+                        string enemyName = this.gameObject.name.ToString();
+                        Debug.Log("Ölen Düşman : " + enemyName);
+                        
+                        coin.Count += coin.EnemyCoinCount;
+                        Debug.Log("EnemyScript para miktarı : " + coin.Count);
+                    }
                 }
-                Destroy(other.gameObject);
+                Destroy(other.gameObject); 
             }
         }
     }

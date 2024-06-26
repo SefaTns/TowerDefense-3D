@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
-    public int miktar;
+    [SerializeField] private int enemyCoinCount;
+    private static int count = 0;
+
+
+    private void Update()
+    {
+        Debug.Log("CoinManager para miktarý : " + Count);
+    }
+    public int EnemyCoinCount
+    {
+        get { return enemyCoinCount; }
+        set { enemyCoinCount = value; }
+    }
+    public int Count
+    {
+        get { return count; }
+        set { count = value; }
+    }
 
 }

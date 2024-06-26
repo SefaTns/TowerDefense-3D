@@ -6,14 +6,13 @@ using UnityEngine.UI;
 
 public class HealtBarController : MonoBehaviour
 {
+    private int enemyCount = 0;
     public float doorHealth;
     public Slider slider;
     public GameObject yildiz3;
     public GameObject yildiz2;
     public GameObject yildiz1;
     public GameObject lose;
-
-
 
     public void Start()
     {
@@ -23,10 +22,10 @@ public class HealtBarController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered");
+        //Debug.Log("Triggered");
         if (other.gameObject.CompareTag("Enemy") && doorHealth >= 0)
         {
-            Debug.Log("Enemy hit door");
+            //Debug.Log("Enemy hit door");
             ApplyDamage(other);
         }
         else
@@ -44,10 +43,11 @@ public class HealtBarController : MonoBehaviour
 
     private void ApplyDamage(Collider enemy)
     {
-        Debug.Log("slider bar updated");
+        //Debug.Log("slider bar updated");
         var enemyDamage = enemy.gameObject.GetComponent<EnemyScript>();
         doorHealth -= enemyDamage.Damage;
         slider.value = doorHealth;
+        enemyCount++;
     }
 
     public void RestartGame()
@@ -56,4 +56,9 @@ public class HealtBarController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Mevcut sahneyi yeniden yükler
     }
 
+    public int EnemyCount
+    {
+        get { return enemyCount; }
+        set { enemyCount = value; }
+    }
 }
