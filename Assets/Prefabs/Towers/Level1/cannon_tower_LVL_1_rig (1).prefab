@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Top Tower
   weaponRadius: 3
-  weaponFireRite: 1.5
+  weaponFireRite: 0.001
   bulletPrefab: {fileID: -4220524358580789128, guid: ddaebb5a692f12541833b9ae58f8cca9,
     type: 3}
   towerTransform: {fileID: 6670739870983573265}

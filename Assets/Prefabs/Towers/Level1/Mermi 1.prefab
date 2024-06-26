@@ -147,5 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletName: TopBullet2
-  speed: 3
-  damage: 20
+  speed: 4
+  damage: 5

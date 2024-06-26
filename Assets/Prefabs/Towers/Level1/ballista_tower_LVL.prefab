@@ -329,6 +329,16 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -477211706573184591, guid: 928f667a65c5b544c90297e7dce885f0,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -477211706573184591, guid: 928f667a65c5b544c90297e7dce885f0,
+        type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2497703097116608233, guid: 928f667a65c5b544c90297e7dce885f0,
         type: 3}
       propertyPath: m_Name
@@ -443,5 +453,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletName: yay
-  speed: 5
-  damage: 20
+  speed: 20
+  damage: 50

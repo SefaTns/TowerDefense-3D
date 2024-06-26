@@ -36,12 +36,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RestartLevel()
+    public void RestartGame()
     {
-        //// Aktif sahneyi yeniden yükleyerek seviyeyi tekrar başlat
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex));
-        
+        Time.timeScale = 1f; // Oyunun hızını normale döndür
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Mevcut sahneyi yeniden yükler
     }
 
 }
