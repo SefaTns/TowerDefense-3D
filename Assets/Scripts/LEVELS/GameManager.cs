@@ -21,9 +21,10 @@ public class GameManager : MonoBehaviour
     // Yýldýzlarý hesaplayan örnek bir metod (kendi oyun mekaniklerinize göre uyarlayýn)
     private int CalculateStars()
     {
-        // Bu metod, oyuncunun performansýna göre yýldýz sayýsýný hesaplamalýdýr
-        // Örneðin, zaman, puan veya diðer kriterlere dayalý olabilir
-        return 3; // Basit bir örnek olarak 3 yýldýz döndürüyoruz
+
+
+
+        return 3;
     }
 
     // Örnek olarak seviyeyi tamamlamayý tetiklemek için bir tuþa basma kontrolü ekleyin

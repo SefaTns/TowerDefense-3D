@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private Transform[] spawnTransform;
-    int spawnIndex = -1;
+    int spawnIndex = 0;
 
     public float spawnRate = 1.0f;
     public float timeBeetwenWaves = 4.0f;
@@ -18,6 +18,8 @@ public class Spawner : MonoBehaviour
 
     bool waveIsDone = true;
     private string [] enemyNames;
+
+    private static int enemySpawnCount = 0;
 
 
     public void Start()
@@ -46,11 +48,10 @@ public class Spawner : MonoBehaviour
         }
 
     }
-       
 
     private void Update()
     {
-        if(waveIsDone && k < enemyPrefabs.Length && EnemyControl())
+        if(waveIsDone && k < enemyPrefabs.Length)
         {
             StartCoroutine(waveSpawner());
         }
@@ -82,14 +83,17 @@ public class Spawner : MonoBehaviour
             {
                 spawnIndex = Random.Range(0, spawnTransform.Length);
             }
-           // Debug.Log(spawnIndex);
+            // Debug.Log(spawnIndex);
             //Debug.Log("bu düşman daha önce gelmedi");
             for (int i = 0; i < enemyCount; i++)
             {
+                EnemySpawnCount++;
                 GameObject enemyClone = Instantiate(enemyPrefabs[k], spawnTransform[spawnIndex].position, Quaternion.identity);
                 yield return new WaitForSeconds(spawnRate);
             }
-        }else
+            Debug.Log("Güncel düşman sayısı : " + EnemySpawnCount);
+        }
+        else
         {
             //Debug.Log("bu düşman daha önce geldi");
             enemyPrefabs[k].GetComponent<EnemyScript>().healthMove += 10.0f;
@@ -105,13 +109,19 @@ public class Spawner : MonoBehaviour
         waveIsDone = true;
     }
 
-    private bool EnemyControl()
-    {
-        GameObject[] enemyControl = GameObject.FindGameObjectsWithTag("Enemy");
+    //private bool EnemyControl()
+    //{
+    //    GameObject[] enemyControl = GameObject.FindGameObjectsWithTag("Enemy");
 
-        if (enemyControl.Length > 0) return false;
+    //    if (enemyControl.Length > 0) return false;
 
-        else return true;
+    //    else return true;
          
+    //}
+
+    public int EnemySpawnCount
+    {
+        get { return enemySpawnCount; }
+        set { enemySpawnCount = value; }
     }
 }
