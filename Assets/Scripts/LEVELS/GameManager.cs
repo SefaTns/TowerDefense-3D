@@ -8,6 +8,40 @@ public class GameManager : MonoBehaviour
     public int currentLevelNumber;
     private int earnedStars;
 
+
+    public static GameManager instance;
+
+    public int totalCoin = 1000;
+
+    private void awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public bool SpendCoins(int amount)
+    {
+        if (totalCoin >= amount)
+        {
+            totalCoin -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public void EarnCoin(int amount)
+    {
+        totalCoin += amount;
+    }
+
+
     // Seviye tamamlandýðýnda bu metodu çaðýrýn
     public void OnLevelCompleted()
     {

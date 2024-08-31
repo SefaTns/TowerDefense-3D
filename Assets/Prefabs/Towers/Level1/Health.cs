@@ -23,7 +23,6 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        // Düþmanýn ölme mantýðý
         Destroy(gameObject);
     }
 }
