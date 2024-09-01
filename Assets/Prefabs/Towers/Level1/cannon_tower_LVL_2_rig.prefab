@@ -231,6 +231,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6712791008978963446}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 56b4113f8aac28746b1da1eaa70f43dd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7175159853094175565}
     - targetCorrespondingSourceObject: {fileID: 1215772418024952484, guid: 56b4113f8aac28746b1da1eaa70f43dd,
         type: 3}
       insertIndex: -1
@@ -273,3 +277,27 @@ MonoBehaviour:
     type: 3}
   towerTransform: {fileID: 3738405071953229900}
   bulletNavig: {fileID: 6712791008978963446}
+--- !u!1 &8165060063399564752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 56b4113f8aac28746b1da1eaa70f43dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 9048144036642547841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7175159853094175565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165060063399564752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5545b7bc0b4554ebd05afc09b67e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TowerName: kule2
+  Cost: 40
+  Range: 4
+  FireRate: 10
+  BulletPrefab: {fileID: 9120603954641299769, guid: b8e663b72fbfa354e80b567fbb84d0c8,
+    type: 3}

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,22 +9,22 @@ public class TowerManager : MonoBehaviour
 
     public void BuyTower(string towerName)
     {
-        GameObejct towerToBuy = System.Array.Find(AvaliableTower, x=> x.GetComponent<TowerBase>().TowerName == towerName);
+        GameObject towerToBuy = System.Array.Find(AvaliableTower, x=> x.GetComponent<TowerBase>().TowerName == towerName);
         if (towerToBuy!= null)
         {
-            TowerBase towerBase = towerToBuy.GetComponenet<towerBase>();
-            if (GameManeger.Instance.SpendCoins(towerBase.Cost))
+            TowerBase towerBase = towerToBuy.GetComponent<TowerBase>();
+            if (GameManager.instance.SpendCoins(towerBase.Cost))
                 PlaceTower(towerToBuy);
             else
-                Debug.log("yeterli coin yok.");
+              Debug.Log("yeterli coin yok.");
         }
         else
         {
-            Debug.logError("Kule bulunamadi" + towerName);
+          Debug.LogError("Kule bulunamadi" + towerName);
         }
     }
     
-    private void PlaceTower(GameObejct tower)
+    private void PlaceTower(GameObject tower)
     {
         Vector3 placementPosition = GetPlacementPosition();
         //sahnede kuleyi gorunur yapip pozzisyon ayarliyoruz

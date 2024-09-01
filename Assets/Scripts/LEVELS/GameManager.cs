@@ -9,11 +9,10 @@ public class GameManager : MonoBehaviour
     private int earnedStars;
 
 
-    public static GameManager instance;
-
+    public static GameManager instance { get; private set; }
     public int totalCoin = 1000;
 
-    private void awake()
+    private void Awake()
     {
         if (instance == null)
         {

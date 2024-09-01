@@ -1729,6 +1729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevelNumber: 1
+  totalCoin: 1000
 --- !u!4 &604043661
 Transform:
   m_ObjectHideFlags: 0
