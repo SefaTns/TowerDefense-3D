@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 8
   starsEarned: 0
-  isUnlocked: 0
+  isUnlocked: 1

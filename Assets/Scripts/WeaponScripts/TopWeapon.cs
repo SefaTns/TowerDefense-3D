@@ -56,9 +56,9 @@ public class TopWeapon : AbstractWeapon
     {
         if (currentEnemy)
         {
-            Vector3 dir = (transform.position - currentEnemy.transform.position).normalized;
-            Debug.Log(dir.ToString());
+            Vector3 dir = (currentEnemy.transform.position - transform.position).normalized;
             dir.y = 0;
+            transform.rotation = Quaternion.Euler(dir.x + 10, dir.y, 0);
             transform.rotation = Quaternion.LookRotation(dir);
         }
     }
