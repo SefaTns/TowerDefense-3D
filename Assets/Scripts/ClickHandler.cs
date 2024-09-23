@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ClickHandler : MonoBehaviour
 {
@@ -48,17 +49,51 @@ public class ClickHandler : MonoBehaviour
                         if (!isPositionDuplicated)
                         {
                             Debug.Log("Yeni pozisyon girildi.");
-                            ShowSelectionPanel(hitPosition); // Paneli göster
+                            selectionPanel.SetActive(true);
                         }
                         else
                         {
                             Debug.Log("Dizide boş bir eleman yok.");
                         }
                     }
+                    //}
+                    //Debug.Log("defence point değil");
+                    //if (selectionPanel.activeSelf && !IsPointerOverUIObject() && !DidHitPanel())
+                    //{
+                    //    Debug.Log("dışarıda");
+                    //    selectionPanel.SetActive(false); // Paneli kapat
+                    //    return; // Diğer işlemleri yapmadan çık
+                    //}
                 }
             }
         }
     }
+
+    //private bool IsPointerOverUIObject()
+    //{
+    //    // Eğer UI elemanları üzerinde isek, true dönecek
+    //    Debug.Log(EventSystem.current.IsPointerOverGameObject());
+    //    return EventSystem.current.IsPointerOverGameObject();
+    //}
+
+    //private bool DidHitPanel()
+    //{
+    //    // Panelin pozisyonuna yakın olup olmadığını raycast ile kontrol et
+    //    Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+    //    RaycastHit hit;
+
+    //    // Eğer ray panelin collider'ına çarparsa panel üzerinde tıklanmıştır
+    //    if (Physics.Raycast(ray, out hit))
+    //    {
+    //        if (hit.collider.gameObject == selectionPanel)
+    //        {
+    //            Debug.Log("panele tıklanmış");
+    //            return true; // Panel üzerine tıklanmış
+    //        }
+    //    }
+    //    Debug.Log("Panel dışı");
+    //    return false; // Panel dışına tıklanmış
+    //}
 
     public void SetSelectedTower(GameObject tower)
     {
@@ -88,18 +123,7 @@ public class ClickHandler : MonoBehaviour
         }
     }
 
-    private void ShowSelectionPanel(Vector3 position)
-    {
-        // Panelin y pozisyonunu biraz yukarı taşıyoruz
-        Vector3 adjustedPosition = new Vector3(position.x, position.y + 2.0f, position.z); // 5.0f, panelin yukarıya taşınma miktarı
-
-        // Panelin pozisyonunu ayarlıyoruz
-        selectionPanel.transform.position = adjustedPosition;
-
-        // Paneli aktif hale getiriyoruz
-        selectionPanel.SetActive(true);
-    }
-
+   
     bool CheckForDuplicatePosition(Vector3 newPosition)
     {
         Debug.Log("Yeni pozisyon: " + newPosition);
@@ -113,4 +137,9 @@ public class ClickHandler : MonoBehaviour
         }
         return false;
     }
+
+    //public PaneliKapat()
+    //{
+    //    selectionPanel.SetActive(false);
+    //}
 }
